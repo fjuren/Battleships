@@ -11,11 +11,31 @@
 
 // class Ship
 // --
+// type (e.g., destroyer, submarine etc)
 // length
-// hit; location hit(num) -> num = hit location
+// hitLocation; location hit(num) -> num = hit location
 // sunk?; isSunk() -> y/n based on total hit = length
 // ship location???
 
+class Ship {
+    constructor(type, length, hitLocation, sunk) {
+        this.type = type; // STRING
+        this.length = length; // INT
+        this.hitLocation = hitLocation; // INT
+        this.sunk = sunk; // BOOL
+    }
+}
+
+let allShips = []
+
+const createCarrier = new Ship("Carrier", 5, [], false);
+const createBattleship = new Ship("Battleship", 4, [], false);
+const createCruiser = new Ship("Cruiser", 3, [], false);
+const createSubmarine = new Ship("Submarine", 3, [], false);
+const createDestroyer = new Ship("Destroyer", 2, [], false);
+allShips.push(createCarrier, createBattleship, createCruiser, createSubmarine, createDestroyer);
+
+console.log(allShips);
 
 // class gameBoard
 // --
