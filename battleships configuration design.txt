@@ -1,0 +1,24 @@
+Constants
+- gameBoard WIDTH (10)
+- gameBoard HEIGHT (10)
+- gameBoard grids (design image may differ from real version)
+- carrier LENGTH (5)
+- battleship LENGTH (4)
+- cruiser LENGTH (3)
+- submarine LENGTH (3)
+- destroyer LENGTH (3)
+- number of attack moves per turn (1)
+- number of players (2)
+- ship gameBoard coordinates location (per game)
+
+
+Changing
+- if ship is hit
+- if ship is sunk
+- location of player attack
+- if all ships are sunk
+
+
+Big-bang
+- to-draw
+- on-key
