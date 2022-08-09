@@ -1,10 +1,12 @@
 {
   "name": "battleships",
   "version": "1.0.0",
+  "type": "module",
   "description": "2 player game of battleships",
   "main": "index.js",
   "scripts": {
     "test": "jest",
+    "watch": "jest --watchAll *.js",
     "build": "webpack"
   },
   "author": "Fabian Juren",

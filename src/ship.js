@@ -18,24 +18,36 @@
 // ship location???
 
 class Ship {
-    constructor(type, length, hitLocation, sunk) {
+    constructor(type, length, availableHitLocation, isSunk) {
         this.type = type; // STRING
         this.length = length; // INT
-        this.hitLocation = hitLocation; // INT
-        this.sunk = sunk; // BOOL
+        this.availableHitLocation = availableHitLocation; // ARRAY
+        this.isSunk = isSunk; // BOOL
+    }
+
+    // Ship, INT -> INT
+    // Marks the given spot of the Ship as hit
+    hit = (incomingHit) => {
+        this.availableHitLocation.push(incomingHit);
     }
 }
 
 let allShips = []
 
-const createCarrier = new Ship("Carrier", 5, [], false);
-const createBattleship = new Ship("Battleship", 4, [], false);
-const createCruiser = new Ship("Cruiser", 3, [], false);
-const createSubmarine = new Ship("Submarine", 3, [], false);
-const createDestroyer = new Ship("Destroyer", 2, [], false);
-allShips.push(createCarrier, createBattleship, createCruiser, createSubmarine, createDestroyer);
+const Carrier = new Ship("Carrier", 5, [], false);
+const Battleship = new Ship("Battleship", 4, [], false);
+const Cruiser = new Ship("Cruiser", 3, [], false);
+const Submarine = new Ship("Submarine", 3, [], false);
+const Destroyer = new Ship("Destroyer", 2, [], false);
+allShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
 
-console.log(allShips);
+// Ship, INT -> BOOL
+// Checks if the spot of the Ship was already hit
+
+
+// export default { Ship }
+
+module.exports = Ship
 
 // class gameBoard
 // --
