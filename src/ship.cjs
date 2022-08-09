@@ -1,12 +1,3 @@
-// function greetSailor(name){
-//     return "hello " + name + " you're cute"
-// }
-
-// console.log(greetSailor("Katie"));
-
-// module.exports = greetSailor
-
-
 // // Back end build
 
 // class Ship
@@ -25,7 +16,7 @@ class Ship {
         this.isSunk = isSunk; // BOOL
     }
 
-    // Ship, INT -> INT
+    // INT -> INT
     // Marks the given spot of the Ship as hit
     hit = (incomingHit) => {
         this.availableHitLocation.push(incomingHit);
@@ -41,13 +32,14 @@ const Submarine = new Ship("Submarine", 3, [], false);
 const Destroyer = new Ship("Destroyer", 2, [], false);
 allShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
 
+Carrier.hit(3)
+console.log(Carrier.availableHitLocation)
+
+
 // Ship, INT -> BOOL
 // Checks if the spot of the Ship was already hit
 
-
-// export default { Ship }
-
-module.exports = Ship
+module.exports = Ship // webpack may be interfering with importing/exporting. Changed file to cjs for temp fix.
 
 // class gameBoard
 // --
