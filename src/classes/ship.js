@@ -1,27 +1,31 @@
 // // Back end build
 // ship location???
 
+
 class Ship {
-    constructor(type, length, availableHitLocation, isSunk) {
+    constructor(type, length, availableHitLocation, sunkStatus) {
         this.type = type; // STRING
         this.length = length; // INT
         this.availableHitLocation = availableHitLocation; // ARRAY
-        this.isSunk = isSunk; // BOOL
+        this.sunkStatus = sunkStatus; // BOOL
     }
 
     // INT -> INT
     // Marks the given spot of the Ship as hit
     hit = (incomingHit) => {
         this.availableHitLocation.push(incomingHit);
-    }
-}
+    };
 
-// Carrier.hit(3)
-// console.log(Carrier.availableHitLocation)
-
-
-// Ship, INT -> BOOL
-// Checks if the spot of the Ship was already hit
+    // -> BOOL
+    // determines whether a ship is sunk based on its length and availableHitLocation
+    isSunk = () => {
+        if (this.length == this.availableHitLocation.length) {
+            this.sunkStatus = true;
+        } else {
+            this.sunkStatus = false;
+        }
+    };
+};
 
 module.exports = Ship 
 
