@@ -1,7 +1,7 @@
 {
   "name": "battleships",
   "version": "1.0.0",
-  "type": "module",
+  "type": "commonjs",
   "description": "2 player game of battleships",
   "main": "index.js",
   "scripts": {

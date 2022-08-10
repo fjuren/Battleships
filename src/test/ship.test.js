@@ -1,4 +1,4 @@
-const Ship = require('./ship.cjs')
+const Ship = require('../classes/ship.js')
 
 describe('Ship function testing', () => {
     const CarrierTesting = new Ship("Carrier", 5, [], false);
