@@ -1,7 +1,3 @@
-// // Back end build
-// ship location???
-
-
 class Ship {
     constructor(type, length, availableHitLocation, sunkStatus) {
         this.type = type; // STRING
@@ -28,17 +24,3 @@ class Ship {
 };
 
 module.exports = Ship 
-
-// class gameBoard
-// --
-// place ship on board coordinate -> class Ship?
-// receiveAttack(x,y) -> hit? -> register as ship hit || register as ship miss
-// Save missed attacks -> display
-// allShipsSunk() -> y/n
-
-
-// players (create a class for this?)
-// --
-// 2 player turn based or dumb AI?
-
-// // Front end UI build

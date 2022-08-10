@@ -1,5 +1,6 @@
-const Ship = require('../classes/ship.js')
+const Ship = require('../classes/ships.js')
 
+// Ship; type, length, availableHitLocation, sunkStatus
 const Carrier = new Ship("Carrier", 5, [], false);
 const Battleship = new Ship("Battleship", 4, [], false);
 const Cruiser = new Ship("Cruiser", 3, [], false);
