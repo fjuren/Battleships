@@ -10,3 +10,4 @@ const Destroyer = new Ship("Destroyer", 2, [], false);
 let allShips = [];
 allShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
 
+module.exports = allShips

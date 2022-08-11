@@ -15,4 +15,4 @@ const createGameboard= () => {
 
 createGameboard(); // may need to move this to game_controller.js later
 
-module.exports = gameboard, createGameboard
+module.exports = gameboard
