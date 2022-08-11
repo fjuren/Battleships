@@ -6,24 +6,13 @@
 // allShipsSunk() -> y/n
 const gameboard = require('../bin/gameboard_setup')
 const allShips = require('../bin/ship_types');
-const Ship = require('./ships');
 
-const Carrier = new Ship("Carrier", 5, [], false);
-const Battleship = new Ship("Battleship", 4, [], false);
-const Cruiser = new Ship("Cruiser", 3, [], false);
-const Submarine = new Ship("Submarine", 3, [], false);
-const Destroyer = new Ship("Destroyer", 2, [], false);
-// Data definitions for placeShip
+const Carrier = allShips[0] 
+const Battleship = allShips[0] 
+const Cruiser = allShips[0] 
+const Submarine = allShips[0] 
+const Destroyer = allShips[0] 
 
-// // ship
-// allShips[0] = Carrier
-// allShips[1] = Battleship
-// allShips[2] = Cruiser
-// allShips[3] = Submarine
-// allShips[4] = Destroyer
-
-// // position
-// gameboard[][]
 
 class Gameboard {
     constructor(gameboard) {
@@ -34,13 +23,13 @@ class Gameboard {
     // Randomly selects a point on the board to place a ship
     placeShip = (ship, index1, index2, isVertical) => {
         // ship starting position
-        gameboard[index1][index2] = 0;
+        gameboard[index1][index2] = ship.type;
         for (let i = 1; i < ship.length; i++) {
             // direction
             if (isVertical === true) {
-                gameboard[index1 + i][index2] = 0;
+                gameboard[index1 + i][index2] = ship.type;
             } else {
-                gameboard[index1][index2 + i] = 0;
+                gameboard[index1][index2 + i] = ship.type;
             }
         }
     };
@@ -80,10 +69,12 @@ class Gameboard {
 
 // console.log(gameboard)
 
+module.exports = Gameboard
+
 const newGame = new Gameboard(gameboard);
 
 // newGame.placeShip(Carrier, 1, 1, false)
-// newGame.placeShip(Battleship, 9, 9, false)
+// newGame.placeShip(Battleship, 3, 4, true)
 // newGame.placeShip(2, 1)
 // newGame.placeShip(Carrier, true);
 console.log(gameboard);
