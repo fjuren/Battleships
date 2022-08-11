@@ -32,22 +32,30 @@ class Gameboard {
 
     // Ship number number bool -> Array
     // Randomly selects a point on the board to place a ship
-    placeShip = (ship, xCoord, yCoord, isVertical) => {
+    placeShip = (ship, index1, index2, isVertical) => {
         // ship starting position
-        gameboard[xCoord][yCoord] = 0;
-        // direction
-        if (isVertical === true) {
-            // assuming wall isn't hit
-            for (let i = 1; i < ship.length; i++) {
-                gameboard[xCoord + i][yCoord] = 0;
-            }} 
-        else 
-        {
-            for (let i = 1; i < ship.length; i++) {
-                gameboard[xCoord][yCoord + i] = 0;
+        gameboard[index1][index2] = 0;
+        for (let i = 1; i < ship.length; i++) {
+            // direction
+            if (isVertical === true) {
+                gameboard[index1 + i][index2] = 0;
+            } else {
+                gameboard[index1][index2 + i] = 0;
             }
         }
-    }
+    };
+    //     if (isVertical === true) {
+    //         // assuming wall isn't hit
+    //         for (let i = 1; i < ship.length; i++) {
+    //             gameboard[index1 + i][index2] = 0;
+    //         }} 
+    //     else 
+    //     {
+    //         for (let i = 1; i < ship.length; i++) {
+    //             gameboard[index1][index2 + i] = 0;
+    //         }
+    //     }
+    // }
     
     // placeShip = (xCoord, yCoord) => {
     //     gameboard[xCoord][yCoord] = 0
@@ -74,8 +82,8 @@ class Gameboard {
 
 const newGame = new Gameboard(gameboard);
 
-newGame.placeShip(Carrier, 1, 1, true)
-newGame.placeShip(Battleship, 9, 9, false)
+// newGame.placeShip(Carrier, 1, 1, false)
+// newGame.placeShip(Battleship, 9, 9, false)
 // newGame.placeShip(2, 1)
 // newGame.placeShip(Carrier, true);
 console.log(gameboard);
