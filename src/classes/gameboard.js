@@ -8,10 +8,10 @@ const gameboard = require('../bin/gameboard_setup')
 const allShips = require('../bin/ship_types');
 
 const Carrier = allShips[0] 
-const Battleship = allShips[0] 
-const Cruiser = allShips[0] 
-const Submarine = allShips[0] 
-const Destroyer = allShips[0] 
+const Battleship = allShips[1] 
+const Cruiser = allShips[2] 
+const Submarine = allShips[3] 
+const Destroyer = allShips[4] 
 
 
 class Gameboard {
@@ -74,8 +74,8 @@ module.exports = Gameboard
 const newGame = new Gameboard(gameboard);
 
 // newGame.placeShip(Carrier, 1, 1, false)
-// newGame.placeShip(Battleship, 3, 4, true)
+// newGame.placeShip(Battleship, 4, 3, true)
 // newGame.placeShip(2, 1)
 // newGame.placeShip(Carrier, true);
-console.log(gameboard);
+// console.log(gameboard);
 // console.log(newGame.placeShip(Carrier, gameboard[0][4], verticle));
