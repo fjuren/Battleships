@@ -64,7 +64,7 @@ describe('Gameboard placeShip testing in isolation (no helper functions)', () =>
 })
 
 describe("Gameboard placeShip function where checkOverlap function catches an overlap, preventing the placement of the ship", () => {
-    test.only("New ship placement overlaps with a previously placed ship; should not be possible to do this", () => {
+    test("New ship placement overlaps with a previously placed ship; should not be possible to do this", () => {
         verticalShipPlacement.placeShip(Destroyer, 5, 4, true);
         verticalShipPlacement.placeShip(Submarine, 3, 4, true);
         expect(gameboard).toStrictEqual([
@@ -109,5 +109,18 @@ describe("Gameboard checkOverlap test in isolation (true = no overlap occured; f
         expect(verticalShipPlacement.checkOverlap(Cruiser, 6, 4, true)).toBe(false)
     })
 })
-// newGame.placeShip(Carrier, 0, 4, false)
-// console.log(newGame.checkOverlap(Cruiser, 0, 5, true))
+
+describe("checkWallHit method testing in isolation (true = no wall hit; false = wall hit occured)", () => {
+    test("Check when a wall hit doesn't occur (HORIZONTAL ship test)", () => {
+        expect(horizontalShipPlacement.checkWallHit(Carrier, 3, 3, false)).toBe(true)
+    })
+    test("Check when a wall hit doesn't occur (VERTICAL ship test)", () => {
+        expect(verticalShipPlacement.checkWallHit(Destroyer, 3, 9, true)).toBe(true)
+    })
+    test("Check when a wall hit occurs (HORIZONTAL ship test)", () => {
+        expect(horizontalShipPlacement.checkWallHit(Carrier, 3, 8, false)).toBe(false)
+    })
+    test.only("Check when a wall hit occurs (VERTICAL ship test)", () => {
+        expect(verticalShipPlacement.checkWallHit(Destroyer, 9, 9, true)).toBe(false)
+    })
+})

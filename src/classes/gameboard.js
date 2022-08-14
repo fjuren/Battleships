@@ -21,10 +21,9 @@ class Gameboard {
     // Ship number number bool -> Array
     // Randomly selects a point on the board to place a ship
     placeShip = (ship, index1, index2, isVertical) => {
-        if (this.checkOverlap(ship, index1, index2, isVertical) === false) {
-            console.log("can't place ship due to overlap")
+        if (!this.checkOverlap(ship, index1, index2, isVertical)) {
+            // do nothing
         } else {
-            console.log("no overlap");
             // ship starting position
             gameboard[index1][index2] = ship.type;
             for (let i = 1; i < ship.length; i++) {
@@ -36,15 +35,28 @@ class Gameboard {
                 }
             }
         }
-        console.log("ran")
     };
-    // 
+    // Ship number number bool -> bool
     // Checks if the ship's board placement hits the wall
-    // checkWallHit = 
+    checkWallHit = (ship, index1, index2, isVertical) => {
+        if (isVertical === true) {
+            if (index1 + ship.length > 10) {
+                return false
+            } else {
+                return true
+            }
+        }
+        if (isVertical === false) {
+            if (index2 + ship.length > 10) {
+                return false
+            } else {
+                return true
+            }
+        }
+    }
 
-    // 
+    // Ship number number bool -> bool
     // Checks if the ship's board placement overlaps the placement of a previously placed ship
-    // 5 , 4 
     checkOverlap = (ship, index1, index2, isVertical) => {
         var counter = 0
         if (isVertical === true) {
@@ -54,19 +66,21 @@ class Gameboard {
                     counter++
                 }
             }
-        } if (isVertical === false) {
+        }
+        if (isVertical === false) {
             for (let i = 0; i < ship.length; i++) {
                 if (gameboard[index1][index2 + i] != null) {
                     // invalid placement
                     counter++
                 }
             }
-        } if (counter != 0) {
+        }
+        if (counter != 0) {
             return false // overlap found
         } else {
             return true // no overlap
         }
-    } 
+    }
 };
 
 // console.log(gameboard)
@@ -78,11 +92,13 @@ const newGame = new Gameboard(gameboard);
 // console.log(newGame.placeShip(Carrier, 0, 4, false));
 // console.log(gameboard);
 // console.log(newGame.checkOverlap(Carrier, 0, 4, false))
-// newGame.placeShip(Cruiser, 5, 2, true)
+// console.log(newGame.checkWallHit(Carrier, 5, 7, false))
 // newGame.checkOverlap(Cruiser, 5, 2, true)
 // console.log(newGame.checkOverlap(Cruiser, 0, 5, true))
 // expect(verticalShipPlacement.checkOverlap(Cruiser, 5, 2, true)).toBe(false)
 // expect(verticalShipPlacement.checkOverlap(Cruiser, 6, 4, true)).toBe(false)
+
+// console.log(newGame.checkWallHit(Submarine, 7, 7, true))
 
 // newGame.placeShip(Submarine, 7, 2, false)
 // console.log(gameboard);
