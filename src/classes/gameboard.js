@@ -21,14 +21,18 @@ class Gameboard {
     // Ship number number bool -> Array
     // Randomly selects a point on the board to place a ship
     placeShip = (ship, index1, index2, isVertical) => {
-        // ship starting position
-        gameboard[index1][index2] = ship.type;
-        for (let i = 1; i < ship.length; i++) {
-            // direction
-            if (isVertical === true) {
-                gameboard[index1 + i][index2] = ship.type;
-            } else {
-                gameboard[index1][index2 + i] = ship.type;
+        if (Gameboard.checkOverlap === false) {
+            console.log("can't place ship")
+        } else {
+            // ship starting position
+            gameboard[index1][index2] = ship.type;
+            for (let i = 1; i < ship.length; i++) {
+                // direction
+                if (isVertical === true) {
+                    gameboard[index1 + i][index2] = ship.type;
+                } else {
+                    gameboard[index1][index2 + i] = ship.type;
+                }
             }
         }
     };
@@ -69,7 +73,8 @@ module.exports = Gameboard
 
 const newGame = new Gameboard(gameboard);
 
-// newGame.placeShip(Carrier, 0, 4, false)
+// console.log(newGame.placeShip(Carrier, 0, 4, false));
+// console.log(gameboard);
 // console.log(newGame.checkOverlap(Carrier, 0, 4, false))
 // newGame.placeShip(Cruiser, 5, 2, true)
 // newGame.checkOverlap(Cruiser, 5, 2, true)
@@ -87,8 +92,8 @@ const newGame = new Gameboard(gameboard);
 
 // newGame.placeShip(Battleship, 4, 5, true)
 // // newGame.checkOverlap(Submarine, 1, 5, false)
-// console.log(newGame.checkOverlap(Submarine, 1, 5, false))
-// newGame.placeShip(Submarine, 1, 5, false)
+// // console.log(newGame.checkOverlap(Submarine, 1, 5, false))
+// console.log(newGame.placeShip(Submarine, 4, 5, false))
 // console.log(gameboard);
 // newGame.placeShip(Destroyer, 0, 4, true)
 // console.log(newGame.checkOverlap(Destroyer, 0, 4, true))

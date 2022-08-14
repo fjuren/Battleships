@@ -44,7 +44,7 @@ describe('Gameboard placeShip testing in isolation (no helper functions)', () =>
             [null, null, null, null, null, null, null, null, null, null],
         ])
     })
-    test('Multiple ships can be placed on the same board, with their respective attributes (i.e., lenght, axis direction etc)', () => {
+    test.only('Multiple ships can be placed on the same board, with their respective attributes (i.e., lenght, axis direction etc)', () => {
         verticalShipPlacement.placeShip(Destroyer, 2, 2, true) // vertical
         horizontalShipPlacement.placeShip(Carrier, 0, 4, false) // horizonatl
         expect(gameboard).toStrictEqual([
