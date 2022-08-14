@@ -1,6 +1,7 @@
 const Gameboard = require('../classes/gameboard')
 const gameboard = require('../bin/gameboard_setup')
 const allShips = require('../bin/ship_types');
+const { subtract } = require('lodash');
 
 const Carrier = allShips[0] 
 const Battleship = allShips[1] 
@@ -44,7 +45,7 @@ describe('Gameboard placeShip testing in isolation (no helper functions)', () =>
             [null, null, null, null, null, null, null, null, null, null],
         ])
     })
-    test.only('Multiple ships can be placed on the same board, with their respective attributes (i.e., lenght, axis direction etc)', () => {
+    test('Multiple ships can be placed on the same board, with their respective attributes (i.e., lenght, axis direction etc)', () => {
         verticalShipPlacement.placeShip(Destroyer, 2, 2, true) // vertical
         horizontalShipPlacement.placeShip(Carrier, 0, 4, false) // horizonatl
         expect(gameboard).toStrictEqual([
@@ -55,6 +56,25 @@ describe('Gameboard placeShip testing in isolation (no helper functions)', () =>
             [null, null, null, null, null, null, null, null, null, null],
             [null, null, null, null, null, null, null, null, null, null],
             [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+        ])
+    })
+})
+
+describe("Gameboard placeShip function where checkOverlap function catches an overlap, preventing the placement of the ship", () => {
+    test.only("New ship placement overlaps with a previously placed ship; should not be possible to do this", () => {
+        verticalShipPlacement.placeShip(Destroyer, 5, 4, true);
+        verticalShipPlacement.placeShip(Submarine, 3, 4, true);
+        expect(gameboard).toStrictEqual([
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, "Destroyer", null, null, null, null, null],
+            [null, null, null, null, "Destroyer", null, null, null, null, null],
             [null, null, null, null, null, null, null, null, null, null],
             [null, null, null, null, null, null, null, null, null, null],
             [null, null, null, null, null, null, null, null, null, null],
