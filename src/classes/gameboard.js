@@ -1,10 +1,11 @@
 // class gameBoard
 // --
-// receiveAttack(x,y) -> hit? -> register as ship hit || register as ship miss
+// receiveAttack(x,y) -> hit? -> register as ship hit || register as board hit (ie ship miss)
 // Save missed attacks -> display
 // allShipsSunk() -> y/n
 const gameboard = require('../bin/gameboard_setup')
 const allShips = require('../bin/ship_types');
+const Ship = require('./ships');
 
 const Carrier = allShips[0]
 const Battleship = allShips[1]
@@ -20,7 +21,6 @@ class Gameboard {
 
     // Ship number number bool -> Array
     // Randomly selects a point on the board to place a ship
-    // 
     placeShip = (ship, index1, index2, isVertical) => {
         if (!this.checkWallHit(ship, index1, index2, isVertical) || !this.checkOverlap(ship, index1, index2, isVertical)) {
             console.log("can't place ship. Either wall hit or overlap or both happened")
@@ -55,7 +55,6 @@ class Gameboard {
             }
         }
     }
-
     // Ship number number bool -> bool
     // Checks if the ship's board placement overlaps the placement of a previously placed ship
     checkOverlap = (ship, index1, index2, isVertical) => {
@@ -82,48 +81,24 @@ class Gameboard {
             return true
         }
     }
+    // number number -> boolean (true if ship hit, false if board hit/ship miss)
+    // Records whether the shot hits a ship or misses a ship
+    receiveAttack = (index1, index2) => {
+        var shipHit = 0
+        for (let i = 0; i < allShips.length; i++) {
+            if (gameboard[index1][index2] === allShips[i]['type']) {
+                shipHit++
+                return true
+            }
+        }
+        if (shipHit != 0) {
+            return true
+        } else {
+            return false
+        }
+    }
 };
-
-// console.log(gameboard)
 
 module.exports = Gameboard
 
 const newGame = new Gameboard(gameboard);
-
-// console.log(newGame.placeShip(Carrier, 0, 4, false));
-// console.log(gameboard);
-// console.log(newGame.checkOverlap(Carrier, 0, 4, false))
-// console.log(newGame.checkWallHit(Carrier, 5, 7, false))
-// newGame.checkOverlap(Cruiser, 5, 2, true)\
-// newGame.checkOverlap(Carrier, 1, 1, false)
-// expect(verticalShipPlacement.checkOverlap(Cruiser, 5, 2, true)).toBe(false)
-// expect(verticalShipPlacement.checkOverlap(Cruiser, 6, 4, true)).toBe(false)
-
-// newGame.placeShip(Carrier, 2, 1, false)
-// newGame.placeShip(Destroyer, 1, 2, true)
-
-// console.log(gameboard)
-
-// newGame.placeShip(Carrier, 1, 1, false)
-// newGame.placeShip(Submarine, 1, 5, true)
-// console.log(gameboard)
-// console.log(gameboard);
-// console.log(newGame.checkOverlap(Battleship, 5, 4, true))
-
-// newGame.placeShip(Battleship, 5, 4, true);
-// console.log(gameboard);
-// console.log(newGame.checkOverlap(Battleship, 5, 4, true))
-
-// newGame.placeShip(Battleship, 4, 5, true)
-// // newGame.checkOverlap(Submarine, 1, 5, false)
-// // console.log(newGame.checkOverlap(Submarine, 1, 5, false))
-// // console.log(newGame.checkOverlap(Submarine, 4, 5, false))
-// newGame.placeShip(Submarine, 4, 5, false)
-
-// console.log(gameboard);
-// newGame.placeShip(Destroyer, 0, 4, true)
-// console.log(newGame.checkOverlap(Destroyer, 0, 4, true))
-// console.log(gameboard);
-// newGame.placeShip(2, 1)
-// newGame.placeShip(Carrier, true);
-// console.log(newGame.placeShip(Carrier, gameboard[0][4], verticle));

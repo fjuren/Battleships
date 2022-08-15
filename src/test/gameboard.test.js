@@ -64,7 +64,7 @@ describe('Gameboard placeShip testing in isolation (no helper functions)', () =>
 })
 
 describe("Gameboard placeShip function, testing ship overlap and wall hit methods together and seperately (i.e., placement should be possible in either cases", () => {
-    test.only("New ship placement overlaps with a previously placed ship (checkOverlap method); should not be possible to do this", () => {
+    test("New ship placement overlaps with a previously placed ship (checkOverlap method); should not be possible to do this", () => {
         verticalShipPlacement.placeShip(Destroyer, 5, 4, true);
         verticalShipPlacement.placeShip(Submarine, 3, 4, true);
         expect(gameboard).toStrictEqual([
@@ -80,7 +80,7 @@ describe("Gameboard placeShip function, testing ship overlap and wall hit method
             [null, null, null, null, null, null, null, null, null, null],
         ])
     })
-    test.only("New HORIZONTAL ship placement hits gameboard wall (checkWallHit method); should not be possible to do this", () => {
+    test("New HORIZONTAL ship placement hits gameboard wall (checkWallHit method); should not be possible to do this", () => {
         horizontalShipPlacement.placeShip(Destroyer, 9, 9, false);
         expect(gameboard).toStrictEqual([
             [null, null, null, null, null, null, null, null, null, null],
@@ -95,7 +95,7 @@ describe("Gameboard placeShip function, testing ship overlap and wall hit method
             [null, null, null, null, null, null, null, null, null, null],
         ])
     })
-    test.only("New VERTICAL ship placement hits gameboard wall (checkWallHit method); should not be possible to do this", () => {
+    test("New VERTICAL ship placement hits gameboard wall (checkWallHit method); should not be possible to do this", () => {
         verticalShipPlacement.placeShip(Destroyer, 9, 9, true);
         expect(gameboard).toStrictEqual([
             [null, null, null, null, null, null, null, null, null, null],
@@ -110,13 +110,14 @@ describe("Gameboard placeShip function, testing ship overlap and wall hit method
             [null, null, null, null, null, null, null, null, null, null],
         ])
     })
-    test.only("Multiple ship placements but some with either illegal ship overlaps, wallhits or both", () => {
-        verticalShipPlacement.placeShip(Destroyer, 9, 9, true); // doesn't work
+    test("Multiple ship placements but some with either illegal ship overlaps, wallhits or both", () => {
+        verticalShipPlacement.placeShip(Destroyer, 9, 9, true); // shouldn't work
         horizontalShipPlacement.placeShip(Carrier, 5, 2, false);
-        verticalShipPlacement.placeShip(Battleship, 4, 2, true); // doesn't work
-        verticalShipPlacement.placeShip(Destroyer, 9, 8, true); // doesn't work
+        verticalShipPlacement.placeShip(Battleship, 4, 2, true); // shouldn't work
+        verticalShipPlacement.placeShip(Destroyer, 9, 8, true); // shouldn't work
         horizontalShipPlacement.placeShip(Destroyer, 1, 1, false);
-        horizontalShipPlacement.placeShip(Submarine, 5, 0, false); // doesn't work
+        horizontalShipPlacement.placeShip(Submarine, 5, 0, false); // shouldn't work
+        verticalShipPlacement.placeShip(Battleship, 4, 4, true) // shouldn't work
         expect(gameboard).toStrictEqual([
             [null, null, null, null, null, null, null, null, null, null],
             [null, "Destroyer", "Destroyer", null, null, null, null, null, null, null],
@@ -172,5 +173,16 @@ describe("checkWallHit method testing in isolation (true = no wall hit; false = 
     })
     test("Check when a wall hit occurs (VERTICAL ship test)", () => {
         expect(verticalShipPlacement.checkWallHit(Destroyer, 9, 9, true)).toBe(false)
+    })
+})
+
+describe("Testing of receiveAttack method", () => {
+    test.only("check if shot is a ship hit", () => {
+        verticalShipPlacement.placeShip(Submarine, 5, 3, true)
+        expect(verticalShipPlacement.receiveAttack(5, 3)).toBe(true)
+    })
+    test.only("check if shot is a ship miss", () => {
+        verticalShipPlacement.placeShip(Submarine, 5, 3, true)
+        expect(verticalShipPlacement.receiveAttack(0, 0)).toBe(false)
     })
 })
