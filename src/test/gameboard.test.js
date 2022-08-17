@@ -202,7 +202,7 @@ describe("Testing of receiveAttack method", () => {
         horizontalShipPlacement.receiveAttack(6, 3) // hit
         expect(Destroyer['availableHitLocation']).toStrictEqual([ [ 6, 2 ], [ 6, 3 ] ])
     })
-    test.only("test that a gameboard records a missed shot", () => {
+    test("test that a gameboard records a missed shot", () => {
         verticalShipPlacement.placeShip(Submarine, 2, 3, true)
         verticalShipPlacement.receiveAttack(1, 1) // hit
         horizontalShipPlacement.receiveAttack(9, 9) // miss
@@ -221,9 +221,23 @@ describe("Testing of receiveAttack method", () => {
     })
 })
 
-// newGame.placeShip(Destroyer, 6, 2, false)
-// newGame.receiveAttack(6, 2)
-// newGame.receiveAttack(6, 3)
-// console.log(Destroyer)
+describe("testing whether ships sink based on the number of direct hits of its position on the gameboard", () => {
+    test("Ship is not sunk, not enough hits", () => {
+        verticalShipPlacement.placeShip(Cruiser, 3, 8, true)
+        verticalShipPlacement.receiveAttack(3, 8) // hit
+        verticalShipPlacement.receiveAttack(1, 1) // miss
+        verticalShipPlacement.receiveAttack(5, 8) // hit
+        Cruiser.isSunk()
+        expect(Cruiser.sunkStatus).toBe(false)
+    })
+    test("Ship is sunk, has enough hits (tracked by Gameboard Class)", () => {
+        verticalShipPlacement.placeShip(Cruiser, 3, 8, true)
+        verticalShipPlacement.receiveAttack(3, 8) // hit
+        verticalShipPlacement.receiveAttack(4, 1) // miss
+        verticalShipPlacement.receiveAttack(5, 8) // hit
+        verticalShipPlacement.receiveAttack(4, 8) // hit
+        Cruiser.isSunk()
+        expect(Cruiser.sunkStatus).toBe(true)
+    })
+})
 
-// console.log(gameboard)

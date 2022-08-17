@@ -90,14 +90,24 @@ class Gameboard {
                 break
             }
         }
+        // remove duplicate shots here?
         if (shipHit[0] != null) {
             return shipHit[0].hit([index1, index2])
         } else {
             return gameboard[index1][index2] = "X"
         }
     }
+    // All Ships -> bool
+    // identifies whether the ship had enough direct hits and has sunk as a result, marking Ship.sunkStatus as true if so. 
+    // allShipsSunk = (ship) => {
+    //     if (ship.availableHitLocation.length == ship.length) {
+    //         return ship.isSunk()
+    //     }
+    //     console.log(ship.sunkStatus)
+    }
 };
 
 module.exports = Gameboard
 
 const newGame = new Gameboard(gameboard);
+
