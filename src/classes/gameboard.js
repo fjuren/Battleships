@@ -4,14 +4,11 @@
 // Save missed attacks -> display
 // allShipsSunk() -> y/n
 const gameboard = require('../bin/gameboard_setup')
-const allShips = require('../bin/ship_types');
 const Ship = require('./ships');
 
-const Carrier = allShips[0]
-const Battleship = allShips[1]
-const Cruiser = allShips[2]
-const Submarine = allShips[3]
-const Destroyer = allShips[4]
+const {Carrier, Battleship, Cruiser, Submarine, Destroyer} = require('../bin/ship_types')
+var allShips = [];
+allShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
 
 
 class Gameboard {
@@ -55,6 +52,7 @@ class Gameboard {
             }
         }
     }
+
     // Ship number number bool -> bool
     // Checks if the ship's board placement overlaps the placement of a previously placed ship
     checkOverlap = (ship, index1, index2, isVertical) => {
@@ -81,20 +79,22 @@ class Gameboard {
             return true
         }
     }
-    // number number -> boolean (true if ship hit, false if board hit/ship miss)
+    // number number -> ship hit OR gameboard hit
     // Records whether the shot hits a ship or misses a ship
     receiveAttack = (index1, index2) => {
-        var shipHit = 0
+        var shipHit = []
+        // var shipName = 
         for (let i = 0; i < allShips.length; i++) {
             if (gameboard[index1][index2] === allShips[i]['type']) {
-                shipHit++
-                return true
+                shipHit.push(allShips[i])
+                break
             }
         }
-        if (shipHit != 0) {
-            return true
+        if (shipHit[0] != null) {
+            // shipHit[0].hit([index1, index2])
+            return shipHit[0].hit([index1, index2])
         } else {
-            return false
+            return gameboard[index1][index2] = "X"
         }
     }
 };
@@ -102,3 +102,33 @@ class Gameboard {
 module.exports = Gameboard
 
 const newGame = new Gameboard(gameboard);
+
+// newGame.receiveAttack(6, 2)
+// // console.log(Carrier)
+
+// console.log(allShips[0]['type'])
+// console.log(Carrier.type)
+
+// newGame.placeShip(Submarine, 2, 3, true)
+//     newGame.receiveAttack(1, 1)
+//     newGame.receiveAttack(9, 9) 
+    
+//         console.log(gameboard)
+        // expect(gameboard).toStrictEqual([
+        //     [null, null, null, null, null, null, null, null, null, null],
+        //     [null, "X", null, null, null, null, null, null, null, null],
+        //     [null, null, null, "Submarine", null, null, null, null, null, null],
+        //     [null, null, null, "Submarine", null, null, null, null, null, null],
+        //     [null, null, null, "Submarine", null, null, null, null, null, null],
+        //     [null, null, null, null, null, null, null, null, null, null],
+        //     [null, null, null, null, null, null, null, null, null, null],
+        //     [null, null, null, null, null, null, null, null, null, null],
+        //     [null, null, null, null, null, null, null, null, null, null],
+        //     [null, null, null, null, null, null, null, null, null, "X"],
+// WORKS
+// newGame.placeShip(Destroyer, 6, 2, false)
+// newGame.receiveAttack(6, 2)
+// newGame.receiveAttack(6, 3)
+// console.log(Destroyer['availableHitLocation'])
+// console.log(Destroyer)
+// console.log(gameboard)

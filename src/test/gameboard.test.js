@@ -3,11 +3,13 @@ const gameboard = require('../bin/gameboard_setup')
 const allShips = require('../bin/ship_types');
 const { subtract } = require('lodash');
 
-const Carrier = allShips[0] 
-const Battleship = allShips[1] 
-const Cruiser = allShips[2] 
-const Submarine = allShips[3] 
-const Destroyer = allShips[4] 
+const {Carrier, Battleship, Cruiser, Submarine, Destroyer} = require('../bin/ship_types')
+
+// const Carrier = allShips[0] 
+// const Battleship = allShips[1] 
+// const Cruiser = allShips[2] 
+// const Submarine = allShips[3] 
+// const Destroyer = allShips[4] 
 
 
 
@@ -177,12 +179,51 @@ describe("checkWallHit method testing in isolation (true = no wall hit; false = 
 })
 
 describe("Testing of receiveAttack method", () => {
-    test.only("check if shot is a ship hit", () => {
+    test("check if shot is a ship hit", () => {
         verticalShipPlacement.placeShip(Submarine, 5, 3, true)
         expect(verticalShipPlacement.receiveAttack(5, 3)).toBe(true)
     })
-    test.only("check if shot is a ship miss", () => {
+    test("check if shot is a ship miss", () => {
         verticalShipPlacement.placeShip(Submarine, 5, 3, true)
         expect(verticalShipPlacement.receiveAttack(0, 0)).toBe(false)
     })
+    test("Check hit of multiple ships on board and name the ship that was hit", () => {
+        verticalShipPlacement.placeShip(Carrier, 5, 3, true)
+        verticalShipPlacement.placeShip(Submarine, 1, 1, true)
+        horizontalShipPlacement.placeShip(Destroyer, 5, 6, false)
+        expect(gameboard[5][3]).toBe("Carrier")
+        expect(gameboard[3][1]).toBe("Submarine")
+        expect(gameboard[5][6]).toBe("Destroyer")
+    })
+    test("test that a Ship object records the hit shot for each shot that hit it", () => {
+        horizontalShipPlacement.placeShip(Destroyer, 6, 2, false)
+        horizontalShipPlacement.receiveAttack(6, 2) // hit
+        horizontalShipPlacement.receiveAttack(1, 8) // miss
+        horizontalShipPlacement.receiveAttack(6, 3) // hit
+        expect(Destroyer['availableHitLocation']).toStrictEqual([ [ 6, 2 ], [ 6, 3 ] ])
+    })
+    test.only("test that a gameboard records a missed shot", () => {
+        verticalShipPlacement.placeShip(Submarine, 2, 3, true)
+        verticalShipPlacement.receiveAttack(1, 1) // hit
+        horizontalShipPlacement.receiveAttack(9, 9) // miss
+        expect(gameboard).toStrictEqual([
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, "X", null, null, null, null, null, null, null, null],
+            [null, null, null, "Submarine", null, null, null, null, null, null],
+            [null, null, null, "Submarine", null, null, null, null, null, null],
+            [null, null, null, "Submarine", null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, "X"],
+        ])
+    })
 })
+
+// newGame.placeShip(Destroyer, 6, 2, false)
+// newGame.receiveAttack(6, 2)
+// newGame.receiveAttack(6, 3)
+// console.log(Destroyer)
+
+// console.log(gameboard)
