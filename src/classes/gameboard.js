@@ -91,7 +91,6 @@ class Gameboard {
             }
         }
         if (shipHit[0] != null) {
-            // shipHit[0].hit([index1, index2])
             return shipHit[0].hit([index1, index2])
         } else {
             return gameboard[index1][index2] = "X"
@@ -102,33 +101,3 @@ class Gameboard {
 module.exports = Gameboard
 
 const newGame = new Gameboard(gameboard);
-
-// newGame.receiveAttack(6, 2)
-// // console.log(Carrier)
-
-// console.log(allShips[0]['type'])
-// console.log(Carrier.type)
-
-// newGame.placeShip(Submarine, 2, 3, true)
-//     newGame.receiveAttack(1, 1)
-//     newGame.receiveAttack(9, 9) 
-    
-//         console.log(gameboard)
-        // expect(gameboard).toStrictEqual([
-        //     [null, null, null, null, null, null, null, null, null, null],
-        //     [null, "X", null, null, null, null, null, null, null, null],
-        //     [null, null, null, "Submarine", null, null, null, null, null, null],
-        //     [null, null, null, "Submarine", null, null, null, null, null, null],
-        //     [null, null, null, "Submarine", null, null, null, null, null, null],
-        //     [null, null, null, null, null, null, null, null, null, null],
-        //     [null, null, null, null, null, null, null, null, null, null],
-        //     [null, null, null, null, null, null, null, null, null, null],
-        //     [null, null, null, null, null, null, null, null, null, null],
-        //     [null, null, null, null, null, null, null, null, null, "X"],
-// WORKS
-// newGame.placeShip(Destroyer, 6, 2, false)
-// newGame.receiveAttack(6, 2)
-// newGame.receiveAttack(6, 3)
-// console.log(Destroyer['availableHitLocation'])
-// console.log(Destroyer)
-// console.log(gameboard)
