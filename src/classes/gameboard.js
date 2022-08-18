@@ -99,11 +99,19 @@ class Gameboard {
     }
     // All Ships -> bool
     // identifies whether the ship had enough direct hits and has sunk as a result, marking Ship.sunkStatus as true if so. 
-    // allShipsSunk = (ship) => {
-    //     if (ship.availableHitLocation.length == ship.length) {
-    //         return ship.isSunk()
-    //     }
-    //     console.log(ship.sunkStatus)
+    allShipsSunk = (a) => {
+        var sunkShips = []
+
+        for (let i = 0; i < a.length; i++) {
+            if (allShips[i].sunkStatus == true && !sunkShips.includes(allShips[i])){
+                sunkShips.push(allShips[i])
+            }
+        }
+        if (sunkShips.length == 5) {
+            return true // all ships have sunk
+        } else {
+            return false // not all ships have sunk
+        }
     }
 };
 

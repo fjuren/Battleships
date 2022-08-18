@@ -1,10 +1,10 @@
 const Gameboard = require('../classes/gameboard')
 const gameboard = require('../bin/gameboard_setup')
-const allShips = require('../bin/ship_types');
 const { subtract } = require('lodash');
 
 const {Carrier, Battleship, Cruiser, Submarine, Destroyer} = require('../bin/ship_types')
-
+var allShips = [];
+allShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
 // const Carrier = allShips[0] 
 // const Battleship = allShips[1] 
 // const Cruiser = allShips[2] 
@@ -241,3 +241,78 @@ describe("testing whether ships sink based on the number of direct hits of its p
     })
 })
 
+describe("testing whether all ships on the gameboard have been sunk. This would mark the end of the game and a winner", () => {
+    test("not all ships have sunk", () => {
+        horizontalShipPlacement.placeShip(Carrier, 1, 1, false)
+        horizontalShipPlacement.placeShip(Destroyer, 2, 2, false)
+        horizontalShipPlacement.placeShip(Submarine, 3, 3, false)
+        horizontalShipPlacement.placeShip(Cruiser, 4, 4, false)
+        horizontalShipPlacement.placeShip(Battleship, 5, 5, false)
+        horizontalShipPlacement.receiveAttack(1,1)
+        horizontalShipPlacement.receiveAttack(1,2)
+        horizontalShipPlacement.receiveAttack(1,3)
+        horizontalShipPlacement.receiveAttack(1,4)
+        horizontalShipPlacement.receiveAttack(1,5)
+
+        horizontalShipPlacement.receiveAttack(2,2)
+        horizontalShipPlacement.receiveAttack(2,3)
+
+        horizontalShipPlacement.receiveAttack(3,3)
+        horizontalShipPlacement.receiveAttack(3,4)
+        horizontalShipPlacement.receiveAttack(3,5)
+
+        horizontalShipPlacement.receiveAttack(4,4)
+        horizontalShipPlacement.receiveAttack(4,5)
+        horizontalShipPlacement.receiveAttack(4,6)
+
+        horizontalShipPlacement.receiveAttack(5,5)
+        horizontalShipPlacement.receiveAttack(5,6)
+        horizontalShipPlacement.receiveAttack(5,3) // missed shot
+        horizontalShipPlacement.receiveAttack(5,3) // missed shot
+
+        Carrier.isSunk()
+        Destroyer.isSunk()
+        Submarine.isSunk()
+        Cruiser.isSunk()
+        Battleship.isSunk()
+        expect(horizontalShipPlacement.allShipsSunk(allShips)).toBe(false)
+    })
+    test.only("all ships have sunk", () => {
+        horizontalShipPlacement.placeShip(Carrier, 1, 1, false)
+        horizontalShipPlacement.placeShip(Destroyer, 2, 2, false)
+        horizontalShipPlacement.placeShip(Submarine, 3, 3, false)
+        horizontalShipPlacement.placeShip(Cruiser, 4, 4, false)
+        horizontalShipPlacement.placeShip(Battleship, 5, 5, false)
+
+        horizontalShipPlacement.receiveAttack(1,1)
+        horizontalShipPlacement.receiveAttack(1,2)
+        horizontalShipPlacement.receiveAttack(1,3)
+        horizontalShipPlacement.receiveAttack(1,4)
+        horizontalShipPlacement.receiveAttack(1,5)
+
+        horizontalShipPlacement.receiveAttack(2,2)
+        horizontalShipPlacement.receiveAttack(2,3)
+
+        horizontalShipPlacement.receiveAttack(3,3)
+        horizontalShipPlacement.receiveAttack(3,4)
+        horizontalShipPlacement.receiveAttack(3,5)
+
+        horizontalShipPlacement.receiveAttack(4,4)
+        horizontalShipPlacement.receiveAttack(4,5)
+        horizontalShipPlacement.receiveAttack(4,6)
+
+        horizontalShipPlacement.receiveAttack(5,5)
+        horizontalShipPlacement.receiveAttack(5,6)
+        horizontalShipPlacement.receiveAttack(5,7)
+        horizontalShipPlacement.receiveAttack(5,8) 
+        
+        Carrier.isSunk()
+        Destroyer.isSunk()
+        Submarine.isSunk()
+        Cruiser.isSunk()
+        Battleship.isSunk()
+        // console.log(Battleship.sunkStatus)
+        expect(horizontalShipPlacement.allShipsSunk(allShips)).toBe(true)
+        console.log(horizontalShipPlacement.allShipsSunk(allShips))
+    })
+})
