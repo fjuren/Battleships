@@ -90,7 +90,7 @@ class Gameboard {
                 break
             }
         }
-        // remove duplicate shots here?
+        // remove duplicate shots here? no, do this in Player class
         if (shipHit[0] != null) {
             return shipHit[0].hit([index1, index2])
         } else {
@@ -117,5 +117,4 @@ class Gameboard {
 
 module.exports = Gameboard
 
-const newGame = new Gameboard(gameboard);
 
