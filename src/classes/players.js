@@ -9,16 +9,15 @@ class Players {
         this.preventRepeatMove = []; // ARRAY
     }
 
-    // [(1,1), (4,6), (5,5)]
-
     // number number gameboard -> gameboard
     // player takes an attacking move on the gameboard
     playerAttack = (index1, index2) => {
-        if (this.checkRepeatedMove(index1, index2) == false) {
-            return false
-        };
-        this.preventRepeatMove.push([index1, index2]);
-        return newGame.receiveAttack(index1, index2);
+        if (!this.checkRepeatedMove(index1, index2) == true) {
+            this.preventRepeatMove.push([index1, index2]);
+            return newGame.receiveAttack(index1, index2);
+        } else {
+            return false // coordinate was already attacked so it's invalid to re-attack the coordinate
+        }
     }
 
     checkRepeatedMove = (index1, index2) => {
@@ -41,17 +40,3 @@ class Players {
 module.exports = Players
 
 const player1 = new Players("Fabian", [])
-
-
-// player1.playerAttack(3,3)
-// player1.playerAttack(5,2)
-// player1.playerAttack(1,1)
-// player1.playerAttack(9,8)
-
-
-// console.log(newGame.receiveAttack(index1, index2))
-// console.log(player1.checkRepeatedMove(3,3))
-// console.log(typeof(player1.preventRepeatMove[0]))
-// console.log(player1.preventRepeatMove[0][1])
-
-// console.log(gameboard)
