@@ -4,8 +4,14 @@ const Players = require('../classes/players')
 
 const newGame = new Gameboard(gameboard)
 const player1 = new Players("Fabian", [])
+const playerAI = new Players("Fabian", [])
+
+var nonRandomTestIndex1 =  7;
+var nonRandomTestIndex2 =  3;
 
 player1.playerAttack(4,4)
+
+console.log(playerAI.playerAttack(nonRandomTestIndex1, nonRandomTestIndex2))
 
 describe("Testing playerAttack method", () => {
     test("Check that attack move works when a ship isn't present", () => {
@@ -31,3 +37,23 @@ describe("Test whether a certain coordinate was already attacked (checkRepeatedM
     })
 })
 
+describe("Testing logic of dumbAIPlayer method", () => {
+    test("Dumb AI method runs as normal", () => {
+        expect(playerAI.dumbAIPlayer()).toBe(false)
+    })
+    test("Dumb AI chooses a random number that's already been moved. Original nonrandom test coordinates (7,3) should not be moved", () => {
+        playerAI.playerAttack(nonRandomTestIndex1, nonRandomTestIndex2)
+        expect(playerAI.dumbAIPlayer()).not.toBe([
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, 'X', null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
+        ])
+    })
+})
