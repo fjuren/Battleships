@@ -1,8 +1,8 @@
 const Gameboard = require('../classes/gameboard')
-const gameboard = require('../bin/gameboard_setup')
+const gameboard = require('../bin/createGameboard')
 const { subtract } = require('lodash');
 
-const {Carrier, Battleship, Cruiser, Submarine, Destroyer} = require('../bin/ship_types')
+const {Carrier, Battleship, Cruiser, Submarine, Destroyer} = require('../bin/createShips')
 var allShips = [];
 allShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
 // const Carrier = allShips[0] 
@@ -277,7 +277,7 @@ describe("testing whether all ships on the gameboard have been sunk. This would 
         Battleship.isSunk()
         expect(horizontalShipPlacement.allShipsSunk(allShips)).toBe(false)
     })
-    test.only("all ships have sunk", () => {
+    test("all ships have sunk", () => {
         horizontalShipPlacement.placeShip(Carrier, 1, 1, false)
         horizontalShipPlacement.placeShip(Destroyer, 2, 2, false)
         horizontalShipPlacement.placeShip(Submarine, 3, 3, false)

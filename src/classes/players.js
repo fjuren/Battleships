@@ -1,4 +1,4 @@
-const gameboard = require('../bin/gameboard_setup'); // gameboard data
+const gameboard = require('../bin/createGameboard'); // gameboard data
 const Gameboard = require('../classes/gameboard') // Gameboard class
 
 const newGame = new Gameboard(gameboard)
@@ -6,6 +6,10 @@ const newGame = new Gameboard(gameboard)
 // variables used in dumbAIPlayer method
 var randomIndex1 =  Math.floor(Math.random() * 10);
 var randomIndex2 =  Math.floor(Math.random() * 10);
+
+// Required for testing dumbAI in jest
+// var randomIndex1 =  7
+// var randomIndex2 =  3
 
 class Players {
     constructor(name) {
@@ -20,11 +24,8 @@ class Players {
             this.preventRepeatMove.push([index1, index2]);
             return newGame.receiveAttack(index1, index2);
         } 
-        // if (this.checkRepeatedMove(index1, index2) == true) {
-        //     return true
-        // } 
         else {
-            return false // coordinate was already attacked so player needs to place another attack
+            return false
         }
     }
 
@@ -59,4 +60,4 @@ class Players {
 
 module.exports = Players
 
-const player1 = new Players("Fabian", [])
+// const player1 = new Players("Fabian", [])

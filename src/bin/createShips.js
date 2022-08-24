@@ -1,4 +1,4 @@
-const Ship = require('../classes/ships.js')
+const Ship = require('../classes/ship.js')
 
 // Ship; type, length, availableHitLocation, sunkStatus
 

@@ -1,4 +1,4 @@
-const Ship = require('../classes/ships')
+const Ship = require('../classes/ship')
 
 const CarrierTest = new Ship("Carrier", 5, [], false);
 const DestroyerTest = new Ship("Destroyer", 4, [], false);
