@@ -1,8 +1,8 @@
 const Gameboard = require('../classes/gameboard')
-const gameboard = require('../bin/createGameboard')
+const gameboard = require('../setup/createGameboard')
 const { subtract } = require('lodash');
 
-const {Carrier, Battleship, Cruiser, Submarine, Destroyer} = require('../bin/createShips')
+const {Carrier, Battleship, Cruiser, Submarine, Destroyer} = require('../setup/createShips')
 var allShips = [];
 allShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
 // const Carrier = allShips[0] 

@@ -1,4 +1,4 @@
-const gameboard = require('../bin/createGameboard');
+const gameboard = require('../setup/createGameboard');
 const Gameboard = require('../classes/gameboard') // Gameboard class
 const Players = require('../classes/players')
 

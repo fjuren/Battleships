@@ -1,5 +1,5 @@
 // const Gameboard = require('./classes/gameboard')
-// const gameboard = require('./bin/createGameboard')
+// const gameboard = require('./setup/createGameboard')
 // const Players = require('./classes/players');
 
 // const player1Gameboard = new Gameboard(gameboard);

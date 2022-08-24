@@ -3,10 +3,10 @@
 // receiveAttack(x,y) -> hit? -> register as ship hit || register as board hit (ie ship miss)
 // Save missed attacks -> display
 // allShipsSunk() -> y/n
-const gameboard = require('../bin/createGameboard')
+const gameboard = require('../setup/createGameboard')
 const Ship = require('./ship');
 
-const {Carrier, Battleship, Cruiser, Submarine, Destroyer} = require('../bin/createShips')
+const {Carrier, Battleship, Cruiser, Submarine, Destroyer} = require('../setup/createShips')
 var allShips = [];
 allShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
 
