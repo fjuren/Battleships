@@ -181,11 +181,11 @@ describe("checkWallHit method testing in isolation (true = no wall hit; false = 
 describe("Testing of receiveAttack method", () => {
     test("check if shot is a ship hit", () => {
         verticalShipPlacement.placeShip(Submarine, 5, 3, true)
-        expect(verticalShipPlacement.receiveAttack(5, 3)).toBe(true)
+        expect(verticalShipPlacement.receiveAttack(5, 3)).toBe(undefined)
     })
     test("check if shot is a ship miss", () => {
         verticalShipPlacement.placeShip(Submarine, 5, 3, true)
-        expect(verticalShipPlacement.receiveAttack(0, 0)).toBe(false)
+        expect(verticalShipPlacement.receiveAttack(0, 0)).toBe('X')
     })
     test("Check hit of multiple ships on board and name the ship that was hit", () => {
         verticalShipPlacement.placeShip(Carrier, 5, 3, true)
@@ -200,7 +200,7 @@ describe("Testing of receiveAttack method", () => {
         horizontalShipPlacement.receiveAttack(6, 2) // hit
         horizontalShipPlacement.receiveAttack(1, 8) // miss
         horizontalShipPlacement.receiveAttack(6, 3) // hit
-        expect(Destroyer['availableHitLocation']).toStrictEqual([ [ 6, 2 ], [ 6, 3 ] ])
+        expect(Destroyer['availableHitLocation']).toStrictEqual(['6,2', '6,3'])
     })
     test("test that a gameboard records a missed shot", () => {
         verticalShipPlacement.placeShip(Submarine, 2, 3, true)

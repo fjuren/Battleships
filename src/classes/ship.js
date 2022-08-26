@@ -9,7 +9,7 @@ class Ship {
     // INT -> INT
     // Marks the given spot of the Ship as hit
     hit = (incomingHit) => {
-        this.availableHitLocation.push(incomingHit);
+        this.availableHitLocation.push(String(incomingHit));
     };
 
     // -> BOOL

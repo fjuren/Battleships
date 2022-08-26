@@ -15,7 +15,7 @@ describe("Testing playerAttack method", () => {
     test("Check that attack move works when a ship isn't present", () => {
         expect(player1.playerAttack(3,2)).toBe('X')
     })
-    test("With checkRepeatedMove enabled; Already attacked coordinate should be prevented from re-attacking", () => {
+    test.only("With checkRepeatedMove enabled; Already attacked coordinate should be prevented from re-attacking", () => {
         expect(player1.playerAttack(4,4)).toBe(false)
     })
 })

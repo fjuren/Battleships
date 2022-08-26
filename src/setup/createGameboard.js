@@ -4,7 +4,7 @@ const gameboard = [];
 const gridWidth = 10;
 const gridHeight = 10;
 
-const createGameboard= () => {
+const createGameboard = () => {
     for(let y = 0; y < gridHeight; y++) {
         gameboard.push([]);
         for(let x = 0; x < gridWidth; x++) {

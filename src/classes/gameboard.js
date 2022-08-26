@@ -20,7 +20,7 @@ class Gameboard {
     // Randomly selects a point on the board to place a ship
     placeShip = (ship, index1, index2, isVertical) => {
         if (!this.checkWallHit(ship, index1, index2, isVertical) || !this.checkOverlap(ship, index1, index2, isVertical)) {
-            console.log("can't place ship. Either wall hit or overlap or both happened")
+            console.log(`Can't place ${ship.type}. Please find another spot`)
         } else {
             // ship starting position
             gameboard[index1][index2] = ship.type;
@@ -90,7 +90,6 @@ class Gameboard {
                 break
             }
         }
-        // remove duplicate shots here? no, do this in Player class
         if (shipHit[0] != null) {
             return shipHit[0].hit([index1, index2])
         } else {
@@ -114,6 +113,15 @@ class Gameboard {
         }
     }
 };
+
+// const game = new Gameboard(gameboard)
+
+// game.placeShip(Cruiser, 1, 1, false)
+
+// game.receiveAttack(1, 1)
+// game.receiveAttack(1, 2)
+
+// Cruiser
 
 module.exports = Gameboard
 

@@ -25,7 +25,7 @@ class Players {
             return newGame.receiveAttack(index1, index2);
         } 
         else {
-            return false
+            return false // move is invalid
         }
     }
 
