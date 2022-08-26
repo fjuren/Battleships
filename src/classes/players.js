@@ -59,5 +59,3 @@ class Players {
 }
 
 module.exports = Players
-
-// const player1 = new Players("Fabian", [])
