@@ -4,7 +4,7 @@ const Players = require('../classes/players')
 
 const newGame = new Gameboard(gameboard)
 const player1 = new Players("Fabian", [])
-const playerAI = new Players("Fabian", [])
+const playerAI = new Players("Fabian_AI", [])
 
 var randomIndex1 =  7;
 var randomIndex2 =  3;
@@ -36,11 +36,11 @@ describe("Test whether a certain coordinate was already attacked (checkRepeatedM
 })
 
 describe("Testing logic of dumbAIPlayer method", () => {
-    test("Dumb AI method runs as normal", () => {
-        expect(playerAI.dumbAIPlayer()).toBe(false)
+    test.only("Dumb AI method runs as normal", () => {
+        expect(playerAI.dumbAIAttack(randomIndex1, randomIndex2)).toBe(false)
     })
     test("Dumb AI chooses a random number that's already been moved. Original nonrandom test coordinates (7,3) should not be moved", () => {
-        playerAI.dumbAIPlayer()
+        playerAI.dumbAIAttack(randomIndex1, randomIndex2)
         expect(gameboard).toStrictEqual([
             [null, null, null, null, null, null, null, null, null, null],
             [null, null, null, null, null, null, null, null, null, null],

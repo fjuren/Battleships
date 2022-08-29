@@ -81,6 +81,7 @@ class Gameboard {
     receiveAttack = (index1, index2) => {
         var shipHit = []
         // var shipName = 
+        console.log('ReceiveAttack false?')
         for (let i = 0; i < allShips.length; i++) {
             if (gameboard[index1][index2] === allShips[i]['type']) {
                 shipHit.push(allShips[i])

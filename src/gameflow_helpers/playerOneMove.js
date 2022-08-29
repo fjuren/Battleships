@@ -4,10 +4,12 @@ const Players = require('../classes/players')
 const Ship = require('../classes/ship')
 const stringToShip = require('../gameflow_helpers/stringToShip')
 
-const dumbAIMove = require('./dumbAIMove')
+// const dumbAIMove = require('./dumbAIMove')
+
 
 // this will ultimately go in placeShip.js
 const player1 = new Players("Player 1", [])
+
 const enemyGameboard = new Gameboard(gameboard)
 const {
     Carrier,
@@ -16,10 +18,10 @@ const {
     Submarine,
     Destroyer
 } = require('../setup/createShips')
+const dumbAIMove = require('./dumbAIMove')
 
 var allShips = [];
 allShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
-
 
 enemyGameboard.placeShip(Carrier, 5, 3, true)
 enemyGameboard.placeShip(Cruiser, 1, 1, false)
@@ -30,8 +32,6 @@ enemyGameboard.placeShip(Destroyer, 7, 5, false)
 // enemyGameboard
 
 const playerOneMove = (index1, index2) => {
-    // check if there'as a winner. checkGameWinner.js placeholder
-
     if (player1.playerAttack(index1, index2) === undefined) {
         let hitShip = stringToShip(enemyGameboard.gameboard[index1][index2])
         // set sunkStatus of the ship to true if it was hit enough times
@@ -44,23 +44,27 @@ const playerOneMove = (index1, index2) => {
             }
         } else {
             // contiue
+            console.log('AI turn')
+            // dumbAIMove
         }
-
-        dumbAIMove()
+    } else if (enemyGameboard.gameboard[index1][index2] == 'X') {
+        console.log('Splash. You missed and made a big splash')
+        // dumbAIMove
 
     } else {
         console.log('try again')
-
     }
 }
 
-// player moves
-// boat hit -> is it sunk? -> yes -> are all the boats sunk? yes -> GG
-
+module.exports = playerOneMove
 
 playerOneMove(1, 1)
-playerOneMove(1, 2)
-playerOneMove(1, 3)
+// playerOneMove(1, 5)
+enemyGameboard
+// dumbAIMove()
+// playerOneMove(1, 1)
+// playerOneMove(1, 2)
+// playerOneMove(1, 3)
 
 // playerOneMove(5,3)
 // playerOneMove(6,3)

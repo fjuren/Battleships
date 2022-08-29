@@ -3,13 +3,13 @@ const Gameboard = require('./gameboard') // Gameboard class
 
 const newGame = new Gameboard(gameboard)
 
-// variables used in dumbAIPlayer method
-var randomIndex1 =  Math.floor(Math.random() * 10);
-var randomIndex2 =  Math.floor(Math.random() * 10);
-
 // Required for testing dumbAI in jest
 // var randomIndex1 =  7
 // var randomIndex2 =  3
+
+// variables used in dumbAIPlayer method
+var randomIndex1 =  Math.floor(Math.random() * 10);
+var randomIndex2 =  Math.floor(Math.random() * 10);
 
 class Players {
     constructor(name) {
@@ -39,21 +39,23 @@ class Players {
                 counter++
             }
         } 
-        console.log(counter)
+        // console.log(counter)
         if (counter != 0) {
             return true // repeated move
         } else {
+            console.log('checkReaptedMove false?')
             return false // not a repeated move
         }
     }
 
     // -> number number (attacking coordinates)
     // automatated player attacking move using dumb/random logic. Allows for a 1 player game against an AI
-    dumbAIPlayer = () => {
+    dumbAIAttack = (randomIndex1, randomIndex2) => {
         while (this.playerAttack(randomIndex1,randomIndex2) == false) {
             randomIndex1 =  Math.floor(Math.random() * 10);
             randomIndex2 =  Math.floor(Math.random() * 10); 
         } 
+        console.log("AI attacks with random move!")
         return this.playerAttack(randomIndex1, randomIndex2)
     }
 }
