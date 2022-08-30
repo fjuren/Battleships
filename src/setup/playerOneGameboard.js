@@ -1,21 +1,21 @@
 // gameboard size: 10x10 grids (x,y)
 
-const gameboard = [];
+const playerOneBoard = [];
 const gridWidth = 10;
 const gridHeight = 10;
 
-const createGameboard = () => {
+const playerOneGameboard = () => {
     for(let y = 0; y < gridHeight; y++) {
-        gameboard.push([]);
+        playerOneBoard.push([]);
         for(let x = 0; x < gridWidth; x++) {
-            gameboard[y].push(null);
+            playerOneBoard[y].push(null);
         };
     };
 };
 
-createGameboard(); // may need to move this to game_controller.js later
+playerOneGameboard(); // may need to move this to game_controller.js later
 
-module.exports = gameboard
+module.exports = playerOneBoard
 
 
 // Delete after push. Testing push on different PC

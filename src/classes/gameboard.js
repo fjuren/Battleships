@@ -1,5 +1,4 @@
-
-const gameboard = require('../setup/createGameboard')
+const playerOneBoard = require('../setup/playerOneGameboard')
 
 const Ship = require('./ship');
 
@@ -9,9 +8,10 @@ allShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
 
 
 class Gameboard {
-    constructor(gameboard) {
-        this.gameboard = gameboard //ARRAY
+    constructor(playerBoard) {
+        this.playerBoard = playerBoard //ARRAY
     }
+
 
     // Ship number number bool -> Array
     // Randomly selects a point on the board to place a ship
@@ -20,13 +20,13 @@ class Gameboard {
             console.log(`Can't place ${ship.type}. Please find another spot`)
         } else {
             // ship starting position
-            gameboard[index1][index2] = ship.type;
+            this.playerBoard[index1][index2] = ship.type;
             for (let i = 1; i < ship.length; i++) {
                 // direction
                 if (isVertical === true) {
-                    gameboard[index1 + i][index2] = ship.type;
+                    this.playerBoard[index1 + i][index2] = ship.type;
                 } else {
-                    gameboard[index1][index2 + i] = ship.type;
+                    this.playerBoard[index1][index2 + i] = ship.type;
                 }
             }
         }
@@ -56,7 +56,7 @@ class Gameboard {
         var counter = 0
         if (isVertical === true) {
             for (let i = 0; i < ship.length; i++) {
-                if (gameboard[index1 + i][index2] != null) {
+                if (this.playerBoard[index1 + i][index2] != null) {
                     // invalid placement
                     counter++
                 }
@@ -64,7 +64,7 @@ class Gameboard {
         }
         if (isVertical === false) {
             for (let i = 0; i < ship.length; i++) {
-                if (gameboard[index1][index2 + i] != null) {
+                if (this.playerBoard[index1][index2 + i] != null) {
                     // invalid placement
                     counter++
                 }
@@ -76,13 +76,13 @@ class Gameboard {
             return true
         }
     }
-    // number number -> ship hit OR gameboard hit
+    // number number -> ship hit OR this.playerBoard hit
     // Records whether the shot hits a ship or misses a ship
     receiveAttack = (index1, index2) => {
         var shipHit = []
         // var shipName = 
         for (let i = 0; i < allShips.length; i++) {
-            if (gameboard[index1][index2] === allShips[i]['type']) {
+            if (this.playerBoard[index1][index2] === allShips[i]['type']) {
                 shipHit.push(allShips[i])
                 break
             }
@@ -90,7 +90,7 @@ class Gameboard {
         if (shipHit[0] != null) {
             return shipHit[0].hit([index1, index2])
         } else {
-            return gameboard[index1][index2] = "X"
+            return this.playerBoard[index1][index2] = "X"
         }
     }
     // All Ships -> bool
@@ -111,8 +111,12 @@ class Gameboard {
     }
 };
 
-// const game = new Gameboard(gameboard)
+const game = new Gameboard(playerOneBoard)
 
+
+// game.placeShip(Carrier, 1, 1, true)
+// game
+// game.checkOverlap(Cruiser, 1, 1, false)
 // game.placeShip(Cruiser, 1, 1, false)
 
 // game.receiveAttack(1, 1)

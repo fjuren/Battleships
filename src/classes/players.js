@@ -1,7 +1,7 @@
-const gameboard = require('../setup/createGameboard'); // gameboard data
+const playerOneBoard = require('../setup/playerOneGameboard'); // gameboard data
 const Gameboard = require('./gameboard') // Gameboard class
 
-const newGame = new Gameboard(gameboard)
+const newGame = new Gameboard(playerOneBoard)
 
 // Required for testing dumbAI in jest
 // var randomIndex1 =  7
@@ -61,3 +61,5 @@ class Players {
 }
 
 module.exports = Players
+
+const player1 = new Players("Fabian", [])

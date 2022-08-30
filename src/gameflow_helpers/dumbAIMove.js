@@ -1,11 +1,11 @@
 // const playerOneMove = require('../gameflow_helpers/playerOneMove')
-const gameboard = require('../setup/createGameboard')
+const playerOneBoard = require('../setup/playerOneGameboard')
 const Gameboard = require('../classes/gameboard')
 const Players = require('../classes/players');
 const stringToShip = require('../gameflow_helpers/stringToShip')
 // const playerOneMove = require('../gameflow_helpers/playerOneMove')
 
-const humanGameboard = new Gameboard(gameboard)
+const humanGameboard = new Gameboard(playerOneBoard)
 const player2_AI = new Players("Player 2 - AI", [])
 
 // const enemyGameboard = new Gameboard(gameboard)
@@ -59,12 +59,12 @@ const dumbAIMove = (randomIndex1, randomIndex2) => {
         }
     }
 
-// dumbAIMove(2, 1)
-// dumbAIMove(1, 1)
-// dumbAIMove(1, 2)
-// dumbAIMove(1, 3)
-// dumbAIMove(1, 4)
-// dumbAIMove(1, 5)
+dumbAIMove(2, 1)
+dumbAIMove(1, 1)
+dumbAIMove(1, 2)
+dumbAIMove(1, 3)
+dumbAIMove(1, 4)
+dumbAIMove(1, 5)
 
 // dumbAIMove(5,3)
 // dumbAIMove(6,3)
