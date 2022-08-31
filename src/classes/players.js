@@ -45,7 +45,6 @@ class Players {
         if (counter != 0) {
             return true // repeated move
         } else {
-            console.log('checkReaptedMove false?')
             return false // not a repeated move
         }
     }
@@ -58,7 +57,6 @@ class Players {
             randomIndex2 =  Math.floor(Math.random() * 10); 
             return false
         } 
-        console.log("AI attacks with random move!")
         return this.playerAttack(randomIndex1, randomIndex2, board)
     }
 }

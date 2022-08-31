@@ -1,16 +1,11 @@
-const playerTwoBoard = require('../setup/playerTwoGameboard')
 const Gameboard = require('../classes/gameboard')
 const Players = require('../classes/players')
-const Ship = require('../classes/ship')
 const stringToShip = require('../gameflow_helpers/stringToShip')
-
+const playerTwoBoard = require('../setup/playerTwoGameboard')
 const dumbAIMove = require('./dumbAIMove')
-
-
-// this will ultimately go in placeShip.js
+const enemyGameboard = new Gameboard(playerTwoBoard)
 const player1 = new Players("Player 1", [])
 
-const enemyGameboard = new Gameboard(playerTwoBoard)
 const {
     Carrier,
     Battleship,
@@ -18,7 +13,6 @@ const {
     Submarine,
     Destroyer
 } = require('../setup/createShips')
-// const dumbAIMove = require('./dumbAIMove')
 
 var allShips = [];
 allShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
@@ -29,13 +23,16 @@ enemyGameboard.placeShip(Battleship, 8, 6, false)
 enemyGameboard.placeShip(Submarine, 2, 3, true)
 enemyGameboard.placeShip(Destroyer, 7, 5, false)
 
+console.log("Player 1's turn")
+console.log("Player 1 attacks at 0 1")
 const playerOneMove = (index1, index2, board) => {
     if (player1.playerAttack(index1, index2, board) === undefined) {
-        let hitShip = stringToShip(playerOneBoard[index1][index2])
+        let hitShip = stringToShip(playerTwoBoard[index1][index2])
+        console.log(`BOOM! You hit the AI's ${hitShip.type}`)
         // set sunkStatus of the ship to true if it was hit enough times
         hitShip.isSunk()
         if (hitShip.sunkStatus) {
-            console.log(`You sunk my ${hitShip.type}!`)
+            console.log(`Player 1 sunk AI's ${hitShip.type}`)
             // was this the last ship to sink? If so, it's game over
             if(enemyGameboard.allShipsSunk(allShips)) {
                 console.log("Game over - GG")
@@ -46,7 +43,7 @@ const playerOneMove = (index1, index2, board) => {
             dumbAIMove
         }
     } else if (playerTwoBoard[index1][index2] == 'X') {
-        console.log('Splash. You missed and made a big splash')
+        console.log('Splash. You missed and made a big splash on the AI gameboard')
         dumbAIMove
 
     } else {
@@ -56,13 +53,14 @@ const playerOneMove = (index1, index2, board) => {
 
 module.exports = playerOneMove
 
-playerOneMove(0, 1, enemyGameboard)
-// playerOneMove(1, 5)
-enemyGameboard
+// playerOneMove(0, 1, enemyGameboard)
+// playerOneMove(1, 1, enemyGameboard)
+// playerOneMove(1, 2, enemyGameboard)
+// playerOneMove(1, 3, enemyGameboard)
+// playerOneMove(1, 5, enemyGameboard)
+// console.log(enemyGameboard)
+// console.log(allShips)
 // dumbAIMove()
-// playerOneMove(1, 1)
-// playerOneMove(1, 2)
-// playerOneMove(1, 3)
 
 // playerOneMove(5,3)
 // playerOneMove(6,3)

@@ -1,11 +1,8 @@
-// const playerOneMove = require('../gameflow_helpers/playerOneMove')
-const playerOneBoard = require('../setup/playerOneGameboard')
 const Gameboard = require('../classes/gameboard')
 const Players = require('../classes/players');
 const stringToShip = require('../gameflow_helpers/stringToShip')
-
+const playerOneBoard = require('../setup/playerOneGameboard')
 const playerOneMove = require('../gameflow_helpers/playerOneMove')
-
 const humanGameboard = new Gameboard(playerOneBoard)
 const player2_AI = new Players("Player 2 - AI", [])
 
@@ -31,17 +28,19 @@ humanGameboard.placeShip(Battleship, 8, 6, false)
 humanGameboard.placeShip(Submarine, 2, 3, true)
 humanGameboard.placeShip(Destroyer, 7, 5, false)
 
+console.log("Dumb AI's turn")
+console.log("Dumb AI attacks at 1 1")
 const dumbAIMove = (randomIndex1, randomIndex2, board) => {
         // check if there's a winner (checkGameWinner.js)
         player2_AI.dumbAIAttack(randomIndex1, randomIndex2, board)
         // ship hit by AI
         if (playerOneBoard[randomIndex1][randomIndex2] != 'X') {
             let hitShip = stringToShip(playerOneBoard[randomIndex1][randomIndex2])
-            console.log(`BOOM! You hit my ${hitShip.type}`)
+            console.log(`BOOM! You hit player 1's ${hitShip.type}`)
             hitShip.isSunk()
             // check if sunk
             if (hitShip.sunkStatus) {
-                console.log(`AI sunk my ${hitShip.type}`)
+                console.log(`AI sunk player 1's ${hitShip.type}`)
                 // was this the last ship to sink? `If so, it's game over
                 if (humanGameboard.allShipsSunk(allShips)) {
                     console.log("Game over - GG")
@@ -53,20 +52,22 @@ const dumbAIMove = (randomIndex1, randomIndex2, board) => {
             }
 
         } else if (playerOneBoard[randomIndex1][randomIndex2] === 'X') {
-            console.log('Splash. You missed and made a big splash')
+            console.log('Splash. You missed and made a big splash on the AI gameboard')
             // human turn
         } else {
             console.log("error??")
         }
     }
 
-dumbAIMove(2, 1, humanGameboard)
-dumbAIMove(1, 1, humanGameboard)
-dumbAIMove(1, 2, humanGameboard)
-dumbAIMove(1, 3, humanGameboard)
+// dumbAIMove(2, 1, humanGameboard)`
+// dumbAIMove(1, 1, humanGameboard)
+// dumbAIMove(1, 2, humanGameboard)
+// dumbAIMove(1, 3, humanGameboard)
 // dumbAIMove(1, 4, humanGameboard)
 // dumbAIMove(1, 5, humanGameboard)
 
+// console.log(humanGameboard)
+// console.log(allShips)
 // dumbAIMove(5,3, humanGameboard)
 // dumbAIMove(6,3, humanGameboard)
 // dumbAIMove(7,3, humanGameboard)
