@@ -1,6 +1,6 @@
 const Gameboard = require('../classes/gameboard')
 const Players = require('../classes/players');
-const stringToShip = require('../gameflow_helpers/stringToShip')
+const {stringToAIShip, stringToShip} = require('../gameflow_helpers/stringToShip')
 const playerOneBoard = require('../setup/playerOneGameboard')
 const playerOneMove = require('../gameflow_helpers/playerOneMove')
 const humanGameboard = new Gameboard(playerOneBoard)
@@ -14,8 +14,8 @@ const {
     Destroyer
 } = require('../setup/createShips')
 
-var allShips = [];
-allShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
+var playerShips = [];
+playerShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
 
 var randomIndex1 =  Math.floor(Math.random() * 10);
 var randomIndex2 =  Math.floor(Math.random() * 10);
@@ -29,10 +29,10 @@ humanGameboard.placeShip(Submarine, 2, 3, true)
 humanGameboard.placeShip(Destroyer, 7, 5, false)
 
 console.log("Dumb AI's turn")
-console.log("Dumb AI attacks at 1 1")
-const dumbAIMove = (randomIndex1, randomIndex2, board) => {
+// console.log("Dumb AI attacks at 2 1")
+const dumbAIMove = (randomIndex1, randomIndex2, board, ships) => {
         // check if there's a winner (checkGameWinner.js)
-        player2_AI.dumbAIAttack(randomIndex1, randomIndex2, board)
+        player2_AI.dumbAIAttack(randomIndex1, randomIndex2, board, ships)
         // ship hit by AI
         if (playerOneBoard[randomIndex1][randomIndex2] != 'X') {
             let hitShip = stringToShip(playerOneBoard[randomIndex1][randomIndex2])
@@ -42,7 +42,7 @@ const dumbAIMove = (randomIndex1, randomIndex2, board) => {
             if (hitShip.sunkStatus) {
                 console.log(`AI sunk player 1's ${hitShip.type}`)
                 // was this the last ship to sink? `If so, it's game over
-                if (humanGameboard.allShipsSunk(allShips)) {
+                if (humanGameboard.allShipsSunk(playerShips)) {
                     console.log("Game over - GG")
                 }
             } else {
@@ -58,34 +58,35 @@ const dumbAIMove = (randomIndex1, randomIndex2, board) => {
             console.log("error??")
         }
     }
+    
+module.exports = dumbAIMove
 
-// dumbAIMove(2, 1, humanGameboard)`
-// dumbAIMove(1, 1, humanGameboard)
-// dumbAIMove(1, 2, humanGameboard)
-// dumbAIMove(1, 3, humanGameboard)
-// dumbAIMove(1, 4, humanGameboard)
-// dumbAIMove(1, 5, humanGameboard)
+// dumbAIMove(2, 1, humanGameboard, playerShips)
+// dumbAIMove(1, 1, humanGameboard, playerShips)
+// dumbAIMove(1, 2, humanGameboard, playerShips)
+// dumbAIMove(1, 3, humanGameboard, playerShips)
+// dumbAIMove(1, 4, humanGameboard, playerShips)
+// dumbAIMove(1, 5, humanGameboard, playerShips)
+
+
+// dumbAIMove(5,3, humanGameboard, playerShips)
+// dumbAIMove(6,3, humanGameboard, playerShips)
+// dumbAIMove(7,3, humanGameboard, playerShips)
+
+// dumbAIMove(8,6, humanGameboard, playerShips)
+// dumbAIMove(8,7, humanGameboard, playerShips)
+// dumbAIMove(8,8, humanGameboard, playerShips)
+// dumbAIMove(8,9, humanGameboard, playerShips)
+
+// dumbAIMove(2,3, humanGameboard, playerShips)
+// dumbAIMove(3,3, humanGameboard, playerShips)
+// dumbAIMove(4,3, humanGameboard, playerShips)
+// dumbAIMove(5,2, humanGameboard, playerShips)
+
+// dumbAIMove(7,5, humanGameboard, playerShips)
+// dumbAIMove(7,6, humanGameboard, playerShips)
 
 // console.log(humanGameboard)
-// console.log(allShips)
-// dumbAIMove(5,3, humanGameboard)
-// dumbAIMove(6,3, humanGameboard)
-// dumbAIMove(7,3, humanGameboard)
-
-// dumbAIMove(8,6, humanGameboard)
-// dumbAIMove(8,7, humanGameboard)
-// dumbAIMove(8,8, humanGameboard)
-// dumbAIMove(8,9, humanGameboard)
-
-// dumbAIMove(2,3, humanGameboard)
-// dumbAIMove(3,3, humanGameboard)
-// dumbAIMove(4,3, humanGameboard)
-// dumbAIMove(5,2, humanGameboard)
-
-// dumbAIMove(7,5, humanGameboard)
-// dumbAIMove(7,6, humanGameboard)
-
+// console.log(playerShips)
 
 // humanGameboard
-
-module.exports = dumbAIMove

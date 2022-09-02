@@ -1,17 +1,29 @@
 const playerOneBoard = require('../setup/playerOneGameboard')
 
-const Ship = require('./ship');
+// const Ship = require('./ship');
 
-const {Carrier, Battleship, Cruiser, Submarine, Destroyer} = require('../setup/createShips')
-var allShips = [];
-allShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
+const {
+    Carrier,
+    Battleship,
+    Cruiser,
+    Submarine,
+    Destroyer,
+    AI_Carrier,
+    AI_Battleship,
+    AI_Cruiser,
+    AI_Submarine,
+    AI_Destroyer
+} = require('../setup/createShips')
+var playerShips = [];
+playerShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
+var AIShips = [];
+AIShips.push(AI_Carrier, AI_Battleship, AI_Cruiser, AI_Submarine, AI_Destroyer);
 
 
 class Gameboard {
     constructor(playerBoard) {
         this.playerBoard = playerBoard //ARRAY
     }
-
 
     // Ship number number bool -> Array
     // Randomly selects a point on the board to place a ship
@@ -60,7 +72,7 @@ class Gameboard {
                     // invalid placement
                     counter++
                 }
-            } 
+            }
         }
         if (isVertical === false) {
             for (let i = 0; i < ship.length; i++) {
@@ -76,14 +88,14 @@ class Gameboard {
             return true
         }
     }
-    // number number -> ship hit OR this.playerBoard hit
+    // number number ships-> ship hit OR this.playerBoard hit
     // Records whether the shot hits a ship or misses a ship
-    receiveAttack = (index1, index2) => {
+    receiveAttack = (index1, index2, ships) => {
         var shipHit = []
         // var shipName = 
-        for (let i = 0; i < allShips.length; i++) {
-            if (this.playerBoard[index1][index2] === allShips[i]['type']) {
-                shipHit.push(allShips[i])
+        for (let i = 0; i < ships.length; i++) {
+            if (this.playerBoard[index1][index2] === ships[i]['type']) {
+                shipHit.push(ships[i])
                 break
             }
         }
@@ -93,14 +105,14 @@ class Gameboard {
             return this.playerBoard[index1][index2] = "X"
         }
     }
-    // All Ships -> bool
+    // ship classes -> bool
     // identifies whether the ship had enough direct hits and has sunk as a result, marking Ship.sunkStatus as true if so. 
-    allShipsSunk = (a) => {
+    allShipsSunk = (ships) => {
         var sunkShips = []
 
-        for (let i = 0; i < a.length; i++) {
-            if (allShips[i].sunkStatus == true && !sunkShips.includes(allShips[i])){
-                sunkShips.push(allShips[i])
+        for (let i = 0; i < ships.length; i++) {
+            if (ships[i].sunkStatus == true && !sunkShips.includes(ships[i])) {
+                sunkShips.push(ships[i])
             }
         }
         if (sunkShips.length == 5) {
@@ -111,19 +123,19 @@ class Gameboard {
     }
 };
 
-const game = new Gameboard(playerOneBoard)
-
+// const game = new Gameboard(playerOneBoard)
 
 // game.placeShip(Carrier, 1, 1, true)
 // game
 // game.checkOverlap(Cruiser, 1, 1, false)
-// game.placeShip(Cruiser, 1, 1, false)
+// // game.placeShip(Cruiser, 1, 1, false)
+// game.placeShip(AI_Cruiser, 1, 1, false)
 
-// game.receiveAttack(1, 1)
+// game.receiveAttack(1, 1, AIShips)
+// AIShips
+// Ships
 // game.receiveAttack(1, 2)
 
 // Cruiser
 
 module.exports = Gameboard
-
-
