@@ -40,11 +40,11 @@ const Battleship = new Ship("Battleship", 4, [], false);
 const Cruiser = new Ship("Cruiser", 3, [], false);
 const Submarine = new Ship("Submarine", 3, [], false);
 const Destroyer = new Ship("Destroyer", 2, [], false);
-const AI_Carrier = new Ship("AI_Carrier", 5, [], false);
-const AI_Battleship = new Ship("AI_Battleship", 4, [], false);
-const AI_Cruiser = new Ship("AI_Cruiser", 3, [], false);
-const AI_Submarine = new Ship("AI_Submarine", 3, [], false);
-const AI_Destroyer = new Ship("AI_Destroyer", 2, [], false);
+const computerCarrier = new Ship("Computer_Carrier", 5, [], false);
+const computerBattleship = new Ship("Computer_Battleship", 4, [], false);
+const computerCruiser = new Ship("Computer_Cruiser", 3, [], false);
+const computerSubmarine = new Ship("Computer_Submarine", 3, [], false);
+const computerDestroyer = new Ship("Computer_Destroyer", 2, [], false);
 
 module.exports = {
     Carrier,
@@ -52,9 +52,9 @@ module.exports = {
     Cruiser,
     Submarine,
     Destroyer,
-    AI_Carrier,
-    AI_Battleship,
-    AI_Cruiser,
-    AI_Submarine,
-    AI_Destroyer
+    computerCarrier,
+    computerBattleship,
+    computerCruiser,
+    computerSubmarine,
+    computerDestroyer
 }

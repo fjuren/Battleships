@@ -1,0 +1,13 @@
+
+Steps below in index.js. This is game flow functionality
+[ ] Create players in index.js
+[ ] Create gameboards per player in index.js
+[ ] Populate each gameboard with ship positions (random for now)
+[ ] Take player moves by clicking on board coords 
+[ ] // take user click specific coordinates
+[ ] // render moves and hit/miss
+[ ] Contine turn by turn moves, informing user what happened each move and what 
+hit/missed
+[ ] // if you're missing methods, figure out where a new one belongs
+[ ] Inform users when game over happens and who won
+[ ] Figure out how you want players to place their ships
