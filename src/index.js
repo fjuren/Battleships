@@ -43,6 +43,7 @@ player2Gameboard.placeShip(computerDestroyer, 7, 5, false)
 
 
 
+
 // function component() {
 //     const element = document.createElement('div');
   

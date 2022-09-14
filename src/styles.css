@@ -1,6 +1,29 @@
+h1 {
+    text-align: center;
+}
+
 #player1Board, #player2Board {
+    position: relative;
     display: grid;
-    grid-template-columns: 120px 120px 120px;
-    grid-template-rows: 120px 120px 120px;
+    grid-template-columns: repeat(10, 2.8rem);
     justify-content: center;
 }
+
+.p1-row, .p2-row {
+    display: grid;
+    grid-template-rows: repeat(10, 2.8rem);
+}
+
+.p1-col, .p2-col {
+    border: .125rem solid black;
+    background-color: white;
+}
+/* 
+.p1-col {
+    grid-auto-columns: 2.8rem 2.8rem 2.8rem 2.8rem 2.8rem 2.8rem 2.8rem 2.8rem 2.8rem 2.8rem;
+} */
+
+/* .p1-row, .p1-col, .p2-row, .p2-col {
+    background-color: white;
+    
+} */
