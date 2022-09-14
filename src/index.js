@@ -1,13 +1,16 @@
 // FOLDER FOR GAME LOOP
 
+require('./styles.css')
+
 // import _ from 'lodash';
-import Gameboard from './classes/gameboard';
-import Players from './classes/players';
-import './styles.css';
+const Gameboard = require('./classes/gameboard');
+const Players = require('./classes/players');
+
+
 // import './ship.js';
 const gameboardOne = require('./setup/playerOneGameboard')
 const gameboardTwo = require('./setup/playerTwoGameboard')
-const { Carrier, Battleship, Cruiser, Submarine, Destroyer, computerCarrier, computerBattleship, computerCruiser, computerSubmarine,  computerDestroyer } = require('../setup/createShips')
+const { Carrier, Battleship, Cruiser, Submarine, Destroyer, computerCarrier, computerBattleship, computerCruiser, computerSubmarine,  computerDestroyer } = require('./setup/createShips')
 
 const player1 = new Players('Player 1 - Human', [])
 const player2 = new Players('Player 2 - Computer', [])
@@ -30,17 +33,6 @@ player2Gameboard.placeShip(computerCruiser, 1, 1, false)
 player2Gameboard.placeShip(computerBattleship, 8, 6, false)
 player2Gameboard.placeShip(computerSubmarine, 2, 3, true)
 player2Gameboard.placeShip(computerDestroyer, 7, 5, false)
-
-// Create players
-// Create gameboards per player
-// Populate each gameboard with ship positions (random for now)
-// Take player moves by clicking on board coords 
-// // take user click specific coordinates
-// // render moves and hit/miss
-// Contine turn by turn moves, informing user what happened each move and what is hit/missed
-// // if you're missing methods, figure out where a new one belongs
-// Inform users when game over happens and who won
-// Figure out how you want players to place their ships
 
 
 

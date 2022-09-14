@@ -1,3 +1,6 @@
-.hello {
-    color: red;
+#player1Board, #player2Board {
+    display: grid;
+    grid-template-columns: 120px 120px 120px;
+    grid-template-rows: 120px 120px 120px;
+    justify-content: center;
 }
