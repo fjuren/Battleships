@@ -3,6 +3,7 @@ Steps below in index.js. This is game flow functionality
 [X] Create players in index.js
 [X] Create gameboards per player in index.js
 [X] Populate each gameboard with ship positions (manually/programatically for now)
+[ ] Display human player ships on board, don't display Computer ships on board
 [ ] Take player moves by clicking on board coords 
 [ ] // take user click specific coordinates
 [ ] // render moves and hit/miss
