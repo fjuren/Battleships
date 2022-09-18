@@ -1,23 +1,19 @@
-const playerOneBoard = require('../setup/playerOneGameboard')
-
-// const Ship = require('./ship');
-
-const {
-    Carrier,
-    Battleship,
-    Cruiser,
-    Submarine,
-    Destroyer,
-    AI_Carrier,
-    AI_Battleship,
-    AI_Cruiser,
-    AI_Submarine,
-    AI_Destroyer
-} = require('../setup/createShips')
-var playerShips = [];
-playerShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
-var AIShips = [];
-AIShips.push(AI_Carrier, AI_Battleship, AI_Cruiser, AI_Submarine, AI_Destroyer);
+// const {
+//     Carrier,
+//     Battleship,
+//     Cruiser,
+//     Submarine,
+//     Destroyer,
+//     AI_Carrier,
+//     AI_Battleship,
+//     AI_Cruiser,
+//     AI_Submarine,
+//     AI_Destroyer
+// } = require('../setup/createShips')
+// var playerShips = [];
+// playerShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
+// var AIShips = [];
+// AIShips.push(AI_Carrier, AI_Battleship, AI_Cruiser, AI_Submarine, AI_Destroyer);
 
 
 class Gameboard {

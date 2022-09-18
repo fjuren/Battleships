@@ -1,6 +1,5 @@
 const Gameboard = require('../classes/gameboard')
 const playerOneBoard = require('../setup/playerOneGameboard')
-const { subtract } = require('lodash');
 
 const {Carrier, Battleship, Cruiser, Submarine, Destroyer} = require('../setup/createShips')
 var playerShips = [];
@@ -230,7 +229,7 @@ describe("testing whether ships sink based on the number of direct hits of its p
         Cruiser.isSunk()
         expect(Cruiser.sunkStatus).toBe(false)
     })
-    test.only("Ship is sunk, has enough hits (tracked by playerOneBoard Class)", () => {
+    test("Ship is sunk, has enough hits (tracked by playerOneBoard Class)", () => {
         verticalShipPlacement.placeShip(Cruiser, 3, 8, true)
         verticalShipPlacement.receiveAttack(3, 8, playerShips) // hit
         verticalShipPlacement.receiveAttack(4, 1, playerShips) // miss

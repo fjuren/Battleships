@@ -41,7 +41,7 @@ describe("Test whether a certain coordinate was already attacked (checkRepeatedM
 })
 
 describe("Testing logic of dumbAIPlayer method", () => {
-    test.only("Dumb AI method runs as normal", () => {
+    test("Dumb AI method runs as normal", () => {
         player2AI.dumbAIAttack(randomIndex1, randomIndex2, p1Board, playerShips)
         expect(playerOneBoard).toStrictEqual([
             [null, null, null, null, null, null, null, null, null, null],

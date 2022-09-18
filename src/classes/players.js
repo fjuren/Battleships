@@ -1,6 +1,6 @@
-const playerOneBoard = require('../setup/playerOneGameboard'); // gameboard data
-const playerTwoBoard = require('../setup/playerTwoGameboard')
-const Gameboard = require('./gameboard') // Gameboard class
+// const playerOneBoard = require('../setup/playerOneGameboard'); // gameboard data
+// const playerTwoBoard = require('../setup/playerTwoGameboard')
+// const Gameboard = require('./gameboard') // Gameboard class
 
 // const p1Board = new Gameboard(playerOneBoard)
 // const p2Board = new Gameboard(playerTwoBoard)
