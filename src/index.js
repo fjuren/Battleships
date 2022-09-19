@@ -28,16 +28,19 @@ const player2Gameboard = new Gameboard(gameboardTwo)
 const randBtn = document.getElementById("randBtn");
 randBtn.addEventListener("click", () => {
     renderTempBoard(temp, humanShips);
-    randBtn.insertAdjacentElement('afterend', confirmButton)
+    confirmPosBtn.disabled = false;
+    // randBtn.insertAdjacentElement('afterend', confirmButton)
 })
 
-var confirmButton = document.createElement('button');
-confirmButton.type = 'button';
-confirmButton.innerHTML = 'Start';
-confirmButton.id = 'confirmPosBtn';
-confirmButton.className = 'btn';
+// var confirmButton = document.createElement('button');
+// confirmButton.type = 'button';
+// confirmButton.innerHTML = 'Start';
+// confirmButton.id = 'confirmPosBtn';
+// confirmButton.className = 'btn';
 
-confirmButton.addEventListener("click", () => {
+const confirmPosBtn = document.getElementById('confirmPosBtn')
+// confirmButton.addEventListener("click", () => {
+    confirmPosBtn.addEventListener("click", () => {
     player1Gameboard = temp
     renderColoring(player1Gameboard, '#7393B3')
     randBtn.remove();
