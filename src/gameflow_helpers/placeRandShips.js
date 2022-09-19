@@ -23,6 +23,7 @@ var randomIndex2 =  Math.floor(Math.random() * 10);
       randomIndex2 =  Math.floor(Math.random() * 10);
     }
   });
+  console.log(temp)
   return temp
 }
 

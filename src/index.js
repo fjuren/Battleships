@@ -21,20 +21,21 @@ const player2 = new Players('Player 2 - Computer', [])
 // temporary board for rendering purposes
 var temp = new Gameboard(gameboardOne)
 // player boards
-const player1Gameboard = temp
+var player1Gameboard = null
 const player2Gameboard = new Gameboard(gameboardTwo)
 
 
 const randBtn = document.getElementById("randBtn");
 randBtn.addEventListener("click", () => {
     renderTempBoard(temp, humanShips);
+
 })
 
-// const confirmPosBtn = document.getElementById("confirmPosBtn");
-// confirmPosBtn.addEventListener("click", (player1Gameboard) => {
-//     const confirmedBoard = player1Gameboard
-//     renderColoring(confirmedBoard, '#00008B')
-// })
+const confirmPosBtn = document.getElementById("confirmPosBtn");
+confirmPosBtn.addEventListener("click", () => {
+    player1Gameboard = temp
+    renderColoring(player1Gameboard, '#7393B3')
+})
 
 // // need to build functionality for player to place ships
 // player1Gameboard.placeShip(Cruiser, 5, 3, true)
