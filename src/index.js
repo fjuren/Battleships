@@ -24,17 +24,25 @@ var temp = new Gameboard(gameboardOne)
 var player1Gameboard = null
 const player2Gameboard = new Gameboard(gameboardTwo)
 
+var confirmButton = document.createElement('button');
+confirmButton.type = 'button';
+confirmButton.innerHTML = 'Start';
+confirmButton.id = 'confirmPosBtn';
+confirmButton.className = 'btn';
 
 const randBtn = document.getElementById("randBtn");
 randBtn.addEventListener("click", () => {
     renderTempBoard(temp, humanShips);
-
+    randBtn.insertAdjacentElement('afterend', confirmButton)
 })
 
-const confirmPosBtn = document.getElementById("confirmPosBtn");
-confirmPosBtn.addEventListener("click", () => {
+// const confirmPosBtn = document.getElementById("confirmPosBtn");
+confirmButton.addEventListener("click", () => {
     player1Gameboard = temp
     renderColoring(player1Gameboard, '#7393B3')
+    randBtn.remove();
+    confirmPosBtn.remove();
+    document.getElementById('instructions').remove();
 })
 
 // // need to build functionality for player to place ships
