@@ -3,7 +3,6 @@
 require('./styles.css')
 
 const renderTempBoard = require('./gameflow_helpers/placeRandShips')
-// require('lodash');
 
 const Players = require('./classes/players');
 
@@ -18,7 +17,8 @@ const player2 = new Players('Player 2 - Computer', [])
 // const player2Gameboard = new Gameboard(gameboardTwo)
 
 
-renderTempBoard()
+const randBtn = document.getElementById("randBtn")
+randBtn.addEventListener("click", renderTempBoard)
 
 // // need to build functionality for player to place ships
 // player1Gameboard.placeShip(Cruiser, 5, 3, true)
