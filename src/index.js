@@ -9,7 +9,7 @@ const computerShips = []
 computerShips.push(computerCarrier, computerBattleship, computerCruiser, computerSubmarine, computerDestroyer);
 
 
-const {renderTempBoard, renderColoring} = require('./gameflow_helpers/placeRandShips')
+const {placeRandShips, renderTempBoard, renderColoring} = require('./gameflow_helpers/placeRandShips')
 
 // gamebaords
 const gameboardOne = require('./setup/playerOneGameboard')
@@ -24,11 +24,6 @@ var temp = new Gameboard(gameboardOne)
 var player1Gameboard = null
 const player2Gameboard = new Gameboard(gameboardTwo)
 
-var confirmButton = document.createElement('button');
-confirmButton.type = 'button';
-confirmButton.innerHTML = 'Start';
-confirmButton.id = 'confirmPosBtn';
-confirmButton.className = 'btn';
 
 const randBtn = document.getElementById("randBtn");
 randBtn.addEventListener("click", () => {
@@ -36,7 +31,12 @@ randBtn.addEventListener("click", () => {
     randBtn.insertAdjacentElement('afterend', confirmButton)
 })
 
-// const confirmPosBtn = document.getElementById("confirmPosBtn");
+var confirmButton = document.createElement('button');
+confirmButton.type = 'button';
+confirmButton.innerHTML = 'Start';
+confirmButton.id = 'confirmPosBtn';
+confirmButton.className = 'btn';
+
 confirmButton.addEventListener("click", () => {
     player1Gameboard = temp
     renderColoring(player1Gameboard, '#7393B3')
@@ -45,12 +45,7 @@ confirmButton.addEventListener("click", () => {
     document.getElementById('instructions').remove();
 })
 
-// // need to build functionality for player to place ships
-// player1Gameboard.placeShip(Cruiser, 5, 3, true)
-// player1Gameboard.placeShip(Carrier, 1, 1, false)
-// player1Gameboard.placeShip(Battleship, 8, 6, false)
-// player1Gameboard.placeShip(Submarine, 2, 3, true)
-// player1Gameboard.placeShip(Destroyer, 7, 5, false)
+placeRandShips(player2Gameboard, computerShips);
 
 // player2Gameboard.placeShip(computerCarrier, 5, 3, true)
 // player2Gameboard.placeShip(computerCruiser, 1, 1, false)
