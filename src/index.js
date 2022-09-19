@@ -1,24 +1,36 @@
-// FOLDER FOR GAME LOOP
-
 require('./styles.css')
+const Players = require('./classes/players');
+const Gameboard = require('./classes/gameboard');
+
+const tempBoardSelection = require('./setup/playerOneGameboard')
+
+const { Carrier, Battleship, Cruiser, Submarine, Destroyer, computerCarrier, computerBattleship, computerCruiser, computerSubmarine,  computerDestroyer } = require('./setup/createShips');
+const humanShips = []
+humanShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer)
+const computerShips = []
+computerShips.push(computerCarrier, computerBattleship, computerCruiser, computerSubmarine, computerDestroyer);
+
 
 const renderTempBoard = require('./gameflow_helpers/placeRandShips')
 
-const Players = require('./classes/players');
-
-
-// import './ship.js';
+// gamebaords
 const gameboardOne = require('./setup/playerOneGameboard')
 const gameboardTwo = require('./setup/playerTwoGameboard')
-
+// players
 const player1 = new Players('Player 1 - Human', [])
 const player2 = new Players('Player 2 - Computer', [])
-// const player1Gameboard = new Gameboard(gameboardOne)
-// const player2Gameboard = new Gameboard(gameboardTwo)
+// temporary board for rendering purposes
+var temp = new Gameboard(tempBoardSelection)
+// player boards
+const player1Gameboard = new Gameboard(gameboardOne)
+const player2Gameboard = new Gameboard(gameboardTwo)
 
 
 const randBtn = document.getElementById("randBtn")
-randBtn.addEventListener("click", renderTempBoard)
+randBtn.addEventListener("click", () => {
+    // player1Gameboard.clearBoard();
+    renderTempBoard(temp, humanShips);
+})
 
 // // need to build functionality for player to place ships
 // player1Gameboard.placeShip(Cruiser, 5, 3, true)

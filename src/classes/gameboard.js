@@ -1,19 +1,21 @@
-// const {
-//     Carrier,
-//     Battleship,
-//     Cruiser,
-//     Submarine,
-//     Destroyer,
-//     AI_Carrier,
-//     AI_Battleship,
-//     AI_Cruiser,
-//     AI_Submarine,
-//     AI_Destroyer
-// } = require('../setup/createShips')
+const {
+    Carrier,
+    Battleship,
+    Cruiser,
+    Submarine,
+    Destroyer,
+    AI_Carrier,
+    AI_Battleship,
+    AI_Cruiser,
+    AI_Submarine,
+    AI_Destroyer
+} = require('../setup/createShips')
 // var playerShips = [];
 // playerShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
 // var AIShips = [];
 // AIShips.push(AI_Carrier, AI_Battleship, AI_Cruiser, AI_Submarine, AI_Destroyer);
+
+const playerOneBoard = require('../setup/playerOneGameboard')
 
 
 class Gameboard {
@@ -120,11 +122,31 @@ class Gameboard {
             return false // not all ships have sunk
         }
     }
+
+    //
+    // clears the ships from the gameboard
+    clearBoard = () => {
+        this.playerBoard = [ 
+        [ null, null, null, null, null, null, null, null, null, null ],
+        [ null, null, null, null, null, null, null, null, null, null ],
+        [ null, null, null, null, null, null, null, null, null, null ],
+        [ null, null, null, null, null, null, null, null, null, null ],
+        [ null, null, null, null, null, null, null, null, null, null ],
+        [ null, null, null, null, null, null, null, null, null, null ],
+        [ null, null, null, null, null, null, null, null, null, null ],
+        [ null, null, null, null, null, null, null, null, null, null ],
+        [ null, null, null, null, null, null, null, null, null, null ],
+        [ null, null, null, null, null, null, null, null, null, null ] ]
+    }
 };
 
 // const game = new Gameboard(playerOneBoard)
 
+// game
 // game.placeShip(Carrier, 1, 1, true)
+// game
+
+// game.clearBoard()
 // game
 // game.checkOverlap(Cruiser, 1, 1, false)
 // // game.placeShip(Cruiser, 1, 1, false)
