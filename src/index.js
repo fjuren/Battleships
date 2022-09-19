@@ -2,8 +2,6 @@ require('./styles.css')
 const Players = require('./classes/players');
 const Gameboard = require('./classes/gameboard');
 
-const tempBoardSelection = require('./setup/playerOneGameboard')
-
 const { Carrier, Battleship, Cruiser, Submarine, Destroyer, computerCarrier, computerBattleship, computerCruiser, computerSubmarine,  computerDestroyer } = require('./setup/createShips');
 const humanShips = []
 humanShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer)
@@ -11,7 +9,7 @@ const computerShips = []
 computerShips.push(computerCarrier, computerBattleship, computerCruiser, computerSubmarine, computerDestroyer);
 
 
-const renderTempBoard = require('./gameflow_helpers/placeRandShips')
+const {renderTempBoard, renderColoring} = require('./gameflow_helpers/placeRandShips')
 
 // gamebaords
 const gameboardOne = require('./setup/playerOneGameboard')
@@ -19,18 +17,24 @@ const gameboardTwo = require('./setup/playerTwoGameboard')
 // players
 const player1 = new Players('Player 1 - Human', [])
 const player2 = new Players('Player 2 - Computer', [])
+
 // temporary board for rendering purposes
-var temp = new Gameboard(tempBoardSelection)
+var temp = new Gameboard(gameboardOne)
 // player boards
-const player1Gameboard = new Gameboard(gameboardOne)
+const player1Gameboard = temp
 const player2Gameboard = new Gameboard(gameboardTwo)
 
 
-const randBtn = document.getElementById("randBtn")
+const randBtn = document.getElementById("randBtn");
 randBtn.addEventListener("click", () => {
-    // player1Gameboard.clearBoard();
     renderTempBoard(temp, humanShips);
 })
+
+// const confirmPosBtn = document.getElementById("confirmPosBtn");
+// confirmPosBtn.addEventListener("click", (player1Gameboard) => {
+//     const confirmedBoard = player1Gameboard
+//     renderColoring(confirmedBoard, '#00008B')
+// })
 
 // // need to build functionality for player to place ships
 // player1Gameboard.placeShip(Cruiser, 5, 3, true)
