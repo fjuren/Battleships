@@ -26,6 +26,8 @@ enemyGameboard.placeShip(AI_Destroyer, 7, 5, false)
 console.log("Player 1's turn")
 console.log("Player 1 attacks at 0 1")
 
+// Num Num class array -> ??
+// complete the move set of player 1
 const playerOneMove = (index1, index2, board, ships) => {
     if (player1.playerAttack(index1, index2, board, ships) === undefined) {
         let hitShip = stringToAIShip(playerTwoBoard[index1][index2])

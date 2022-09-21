@@ -13,7 +13,9 @@ const {placeRandShips, renderTempBoard, renderColoring} = require('./gameflow_he
 
 // gamebaords
 const gameboardOne = require('./setup/playerOneGameboard')
-const gameboardTwo = require('./setup/playerTwoGameboard')
+const gameboardTwo = require('./setup/playerTwoGameboard');
+// const playerOneMove = require('./gameflow_helpers/playerOneMove');
+// const dumbAIMove = require('./gameflow_helpers/dumbAIMove');
 // players
 const player1 = new Players('Player 1 - Human', [])
 const player2 = new Players('Player 2 - Computer', [])
@@ -48,13 +50,32 @@ const confirmPosBtn = document.getElementById('confirmPosBtn')
     document.getElementById('instructions').remove();
 })
 
+// sets computer ship starting position (will not render ship positions)
 placeRandShips(player2Gameboard, computerShips);
 
-// player2Gameboard.placeShip(computerCarrier, 5, 3, true)
-// player2Gameboard.placeShip(computerCruiser, 1, 1, false)
-// player2Gameboard.placeShip(computerBattleship, 8, 6, false)
-// player2Gameboard.placeShip(computerSubmarine, 2, 3, true)
-// player2Gameboard.placeShip(computerDestroyer, 7, 5, false)
+// random selection of player who goes first
+if (Math.random() < 0.5) {
+    console.log("player 1's turn")
+} else {
+    console.log("computer's turn")
+    // var randomIndex1 =  Math.floor(Math.random() * 10);
+    // var randomIndex2 =  Math.floor(Math.random() * 10);
+    // dumbAIMove(randomIndex1, randomIndex2, player1Gameboard, humanShips)
+}
 
-// Confirm temp ship placement
+// gameflow
+var ind1 = null
+var ind2 = null
 
+document.getElementById("player2Board").addEventListener("click", (e) => {
+    ind1 = e.path[0].id[6]
+    ind2 = e.path[1].id[6]
+    console.log(ind1)
+    console.log(ind2)
+    // player1Turn(ind1, ind2)
+})
+
+
+// const player1Turn = (ind1, ind2) => {
+//     console.log(playerOneMove(ind1, ind2, player2Gameboard, computerShips))
+// }
