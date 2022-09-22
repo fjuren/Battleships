@@ -1,34 +1,34 @@
-const Gameboard = require('../classes/gameboard')
-const Players = require('../classes/players');
+// const Gameboard = require('../classes/gameboard')
+// const Players = require('../classes/players');
 const {stringToAIShip, stringToShip} = require('../gameflow_helpers/stringToShip')
 const playerOneBoard = require('../setup/playerOneGameboard')
 const playerOneMove = require('../gameflow_helpers/playerOneMove')
-const humanGameboard = new Gameboard(playerOneBoard)
-const player2_AI = new Players("Player 2 - AI", [])
+// const humanGameboard = new Gameboard(playerOneBoard)
+// const player2_AI = new Players("Player 2 - AI", [])
 
-const {
-    Carrier,
-    Battleship,
-    Cruiser,
-    Submarine,
-    Destroyer
-} = require('../setup/createShips')
+// const {
+//     Carrier,
+//     Battleship,
+//     Cruiser,
+//     Submarine,
+//     Destroyer
+// } = require('../setup/createShips')
 
-var playerShips = [];
-playerShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
+// var playerShips = [];
+// playerShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
 
 var randomIndex1 =  Math.floor(Math.random() * 10);
 var randomIndex2 =  Math.floor(Math.random() * 10);
 // var randomIndex1 = 8
 // var randomIndex2 = 2
 
-humanGameboard.placeShip(Cruiser, 5, 3, true)
-humanGameboard.placeShip(Carrier, 1, 1, false)
-humanGameboard.placeShip(Battleship, 8, 6, false)
-humanGameboard.placeShip(Submarine, 2, 3, true)
-humanGameboard.placeShip(Destroyer, 7, 5, false)
+// humanGameboard.placeShip(Cruiser, 5, 3, true)
+// humanGameboard.placeShip(Carrier, 1, 1, false)
+// humanGameboard.placeShip(Battleship, 8, 6, false)
+// humanGameboard.placeShip(Submarine, 2, 3, true)
+// humanGameboard.placeShip(Destroyer, 7, 5, false)
 
-console.log("Dumb AI's turn")
+// console.log("Dumb AI's turn")
 // console.log("Dumb AI attacks at 2 1")
 const dumbAIMove = (randomIndex1, randomIndex2, board, ships) => {
         // check if there's a winner (checkGameWinner.js)
@@ -42,7 +42,7 @@ const dumbAIMove = (randomIndex1, randomIndex2, board, ships) => {
             if (hitShip.sunkStatus) {
                 console.log(`AI sunk player 1's ${hitShip.type}`)
                 // was this the last ship to sink? `If so, it's game over
-                if (humanGameboard.allShipsSunk(playerShips)) {
+                if (board.allShipsSunk(playerShips)) {
                     console.log("Game over - GG")
                 }
             } else {

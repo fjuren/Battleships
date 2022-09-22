@@ -27,29 +27,29 @@ var randomIndex2 =  Math.floor(Math.random() * 10);
   return temp
 }
 
-// board ship(as an array)-> board html styling
-// Renders of temporary ship placement  
-const renderTempBoard = (temp, arrayOfShips) => {
-  // first clear the board since the user can repeatedly place their starting ship positioning.
-  temp.clearBoard();
-  var forBoardRender = placeRandShips(temp, arrayOfShips);
-  renderColoring(forBoardRender, '#B0E0E6')
-}
+// // board ship(as an array)-> board html styling
+// // Renders of temporary ship placement  
+// const renderTempBoard = (temp, arrayOfShips) => {
+//   // first clear the board since the user can repeatedly place their starting ship positioning.
+//   temp.clearBoard();
+//   var forBoardRender = placeRandShips(temp, arrayOfShips);
+//   renderColoring(forBoardRender, '#B0E0E6')
+// }
 
-// array color(as a string) -> board html syling
-// applies color rendering of ship positions
-const renderColoring = (array, color) => {
-  array.playerBoard.forEach((row, rowInd) => {
-    row.forEach((col, colInd) => {
-      // Render a clear board each time this function is called
-      document.getElementById(`p1-col${[colInd]}`).getElementsByClassName('p1-row')[`${rowInd}`].style.backgroundColor = ''
-      // render new positions
-      if (col != null) {
-        document.getElementById(`p1-col${[colInd]}`).getElementsByClassName('p1-row')[`${rowInd}`].style.backgroundColor = color
-      }
-    })
-  })
-}
+// // array color(as a string) -> board html syling
+// // applies color rendering of ship positions
+// const renderColoring = (array, color) => {
+//   array.playerBoard.forEach((row, rowInd) => {
+//     row.forEach((col, colInd) => {
+//       // Render a clear board each time this function is called
+//       document.getElementById(`p1-col${[colInd]}`).getElementsByClassName('p1-row')[`${rowInd}`].style.backgroundColor = ''
+//       // render new positions
+//       if (col != null) {
+//         document.getElementById(`p1-col${[colInd]}`).getElementsByClassName('p1-row')[`${rowInd}`].style.backgroundColor = color
+//       }
+//     })
+//   })
+// }
 
 
-module.exports = {placeRandShips, renderTempBoard, renderColoring}
+module.exports = placeRandShips

@@ -23,7 +23,7 @@ class Players {
         this.preventRepeatMove = []; // ARRAY
     }
 
-    // number number gameboard ships -> gameboard
+    // number number gameboard(as the class) ships -> gameboard
     // player takes an attacking move against opponent gameboard
     playerAttack = (index1, index2, board, ships) => {
         if (!this.checkRepeatedMove(index1, index2) == true) {

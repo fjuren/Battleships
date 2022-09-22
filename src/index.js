@@ -1,4 +1,4 @@
-require('./styles.css')
+require('./styles/styles.css')
 const Players = require('./classes/players');
 const Gameboard = require('./classes/gameboard');
 
@@ -9,23 +9,29 @@ const computerShips = []
 computerShips.push(computerCarrier, computerBattleship, computerCruiser, computerSubmarine, computerDestroyer);
 
 
-const {placeRandShips, renderTempBoard, renderColoring} = require('./gameflow_helpers/placeRandShips')
+const placeRandShips = require('./gameflow_helpers/placeRandShips')
+const renderTempBoard = require('./styles/renderTempBoard')
+const renderColoring = require('./styles/renderColoring')
 
 // gamebaords
-const gameboardOne = require('./setup/playerOneGameboard')
-const gameboardTwo = require('./setup/playerTwoGameboard');
-// const playerOneMove = require('./gameflow_helpers/playerOneMove');
-// const dumbAIMove = require('./gameflow_helpers/dumbAIMove');
+const playerOneBoard = require('./setup/playerOneGameboard')
+const playerTwoBoard = require('./setup/playerTwoGameboard');
+
 // players
 const player1 = new Players('Player 1 - Human', [])
 const player2 = new Players('Player 2 - Computer', [])
 
 // temporary board for rendering purposes
-var temp = new Gameboard(gameboardOne)
+var temp = new Gameboard(playerOneBoard)
 // player boards
 var player1Gameboard = null
-const player2Gameboard = new Gameboard(gameboardTwo)
+const player2Gameboard = new Gameboard(playerTwoBoard)
 
+console.log(player2Gameboard.playerBoard)
+
+// // Player movement logic
+const playerOneMove = require('./gameflow_helpers/playerOneMove');
+// const dumbAIMove = require('./gameflow_helpers/dumbAIMove');
 
 const randBtn = document.getElementById("randBtn");
 randBtn.addEventListener("click", () => {
@@ -56,26 +62,34 @@ placeRandShips(player2Gameboard, computerShips);
 // random selection of player who goes first
 if (Math.random() < 0.5) {
     console.log("player 1's turn")
+    // player 1 initiate its move via onclick event on enemy gameboard.
 } else {
     console.log("computer's turn")
-    // var randomIndex1 =  Math.floor(Math.random() * 10);
-    // var randomIndex2 =  Math.floor(Math.random() * 10);
-    // dumbAIMove(randomIndex1, randomIndex2, player1Gameboard, humanShips)
+    // player2Turn()
 }
 
 // gameflow
 var ind1 = null
 var ind2 = null
 
+
 document.getElementById("player2Board").addEventListener("click", (e) => {
     ind1 = e.path[0].id[6]
     ind2 = e.path[1].id[6]
     console.log(ind1)
     console.log(ind2)
-    // player1Turn(ind1, ind2)
+    player1Turn(ind1, ind2)
 })
 
 
-// const player1Turn = (ind1, ind2) => {
-//     console.log(playerOneMove(ind1, ind2, player2Gameboard, computerShips))
-// }
+const player1Turn = (ind1, ind2) => {
+    // check if gameover? If not proceed:
+    playerOneMove(player1, ind1, ind2, player2Gameboard, computerShips)
+    // If it isn't game over, player 2's turn
+}
+
+const player2Turn = () => {
+    // var randomIndex1 =  Math.floor(Math.random() * 10);
+    // var randomIndex2 =  Math.floor(Math.random() * 10);
+    // dumbAIMove(randomIndex1, randomIndex2, player1Gameboard, humanShips)
+}

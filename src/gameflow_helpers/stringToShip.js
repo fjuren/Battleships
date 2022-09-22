@@ -8,10 +8,10 @@ const {
 // string -> object
 // Converts the string of a Ship to its object form 
 const stringToShip = (shipAsString) => {
-    
+
     let convertedShip = null
 
-    switch(shipAsString) {
+    switch (shipAsString) {
         case 'Carrier':
             convertedShip = Carrier
             break;
@@ -34,33 +34,34 @@ const stringToShip = (shipAsString) => {
 }
 
 const {
-    AI_Carrier,
-    AI_Battleship,
-    AI_Cruiser,
-    AI_Submarine,
-    AI_Destroyer
+    computerCarrier,
+    computerBattleship,
+    computerCruiser,
+    computerSubmarine,
+    computerDestroyer
 } = require('../setup/createShips')
+
 // string -> object
 // Converts the string of a Ship to its object form 
 const stringToAIShip = (shipAsAIString) => {
-    
+
     let convertedShip = null
 
-    switch(shipAsAIString) {
-        case 'AI_Carrier':
-            convertedShip = AI_Carrier
+    switch (shipAsAIString) {
+        case 'computerCarrier':
+            convertedShip = computerCarrier
             break;
-        case 'AI_Cruiser':
-            convertedShip = AI_Cruiser
+        case 'computerCruiser':
+            convertedShip = computerCruiser
             break;
-        case 'AI_Battleship':
-            convertedShip = AI_Battleship
+        case 'computerBattleship':
+            convertedShip = computerBattleship
             break;
-        case 'AI_Submarine':
-            convertedShip = AI_Submarine
+        case 'computerSubmarine':
+            convertedShip = computerSubmarine
             break;
-        case 'AI_Destroyer':
-            convertedShip = AI_Destroyer
+        case 'computerDestroyer':
+            convertedShip = computerDestroyer
             break;
         default:
             break;
@@ -68,4 +69,7 @@ const stringToAIShip = (shipAsAIString) => {
     return convertedShip
 }
 
-module.exports = {stringToShip, stringToAIShip}
+module.exports = {
+    stringToShip,
+    stringToAIShip
+}
