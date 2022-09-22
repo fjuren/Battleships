@@ -16,7 +16,13 @@ const renderP1StartColoring = (array, color) => {
 // array num num string color(as a string) -> board html styling
 // applies color rendering based on provided args
 const renderAttackColoring = (index1, index2, p1orp2, hitOrMissColor) => {
+  var element = document.getElementById(`${p1orp2}-col${[index2]}`).getElementsByClassName(`${p1orp2}-row`)[`${index1}`]
+
+  const attackStyling = document.createElement("div")
+  attackStyling.classList.add('attackingMove')
+  element.appendChild(attackStyling)
   
-  document.getElementById(`${p1orp2}-col${[index2]}`).getElementsByClassName(`${p1orp2}-row`)[`${index1}`].style.backgroundColor = hitOrMissColor
+  attackStyling.style.backgroundColor = hitOrMissColor
+  console.log(element)
 }
   module.exports = {renderP1StartColoring, renderAttackColoring};

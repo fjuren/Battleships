@@ -49,7 +49,7 @@ const playerOneMove = (playerClass, index1, index2, board, ships) => {
             dumbAIMove
         }
     } else if (playerTwoBoard[index1][index2] == 'X') {
-        renderAttackColoring(index1, index2, 'p2', 'green')
+        renderAttackColoring(index1, index2, 'p2', '#00b8ff')
         console.log('Splash. You missed and made a big splash on the AI gameboard')
         dumbAIMove
     } else {

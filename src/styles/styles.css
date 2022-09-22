@@ -16,6 +16,16 @@ h1, h2 {
 }
 
 .p1-row, .p2-row {
+    position: relative;
     border: .125rem solid black;
     background-color: white;
+}
+
+.attackingMove {
+    position:absolute;
+    left: .6rem;
+    top: .6rem;
+    border-radius: 200%;
+    width: 20px;
+    height: 20px;
 }

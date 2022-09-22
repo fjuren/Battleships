@@ -50,7 +50,7 @@ const confirmPosBtn = document.getElementById('confirmPosBtn')
 // confirmButton.addEventListener("click", () => {
     confirmPosBtn.addEventListener("click", () => {
     player1Gameboard = temp
-    renderP1StartColoring(player1Gameboard, '#7393B3')
+    renderP1StartColoring(player1Gameboard, '#A19B99')
     randBtn.remove();
     confirmPosBtn.remove();
     document.getElementById('instructions').remove();
