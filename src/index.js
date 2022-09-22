@@ -11,7 +11,7 @@ computerShips.push(computerCarrier, computerBattleship, computerCruiser, compute
 
 const placeRandShips = require('./gameflow_helpers/placeRandShips')
 const renderTempBoard = require('./styles/renderTempBoard')
-const renderColoring = require('./styles/renderColoring')
+const {renderP1StartColoring} = require('./styles/renderColoring')
 
 // gamebaords
 const playerOneBoard = require('./setup/playerOneGameboard')
@@ -50,7 +50,7 @@ const confirmPosBtn = document.getElementById('confirmPosBtn')
 // confirmButton.addEventListener("click", () => {
     confirmPosBtn.addEventListener("click", () => {
     player1Gameboard = temp
-    renderColoring(player1Gameboard, '#7393B3')
+    renderP1StartColoring(player1Gameboard, '#7393B3')
     randBtn.remove();
     confirmPosBtn.remove();
     document.getElementById('instructions').remove();
@@ -76,12 +76,8 @@ var ind2 = null
 document.getElementById("player2Board").addEventListener("click", (e) => {
     ind1 = e.path[0].id[6]
     ind2 = e.path[1].id[6]
-    console.log(ind1)
-    console.log(ind2)
     player1Turn(ind1, ind2)
 })
-
-
 const player1Turn = (ind1, ind2) => {
     // check if gameover? If not proceed:
     playerOneMove(player1, ind1, ind2, player2Gameboard, computerShips)

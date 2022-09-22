@@ -3,6 +3,7 @@
 const {stringToAIShip, stringToShip} = require('../gameflow_helpers/stringToShip')
 const playerTwoBoard = require('../setup/playerTwoGameboard')
 const dumbAIMove = require('./dumbAIMove')
+const {renderAttackColoring} = require('../styles/renderColoring')
 // const enemyGameboard = new Gameboard(playerTwoBoard)
 // const player1 = new Players("Player 1", [])
 
@@ -31,6 +32,7 @@ const dumbAIMove = require('./dumbAIMove')
 const playerOneMove = (playerClass, index1, index2, board, ships) => {
     if (playerClass.playerAttack(index1, index2, board, ships) === undefined) {
         let hitShip = stringToAIShip(board.playerBoard[index1][index2])
+        renderAttackColoring(index1, index2, 'p2', 'red')
         console.log(hitShip);
         console.log(`BOOM! You hit the AI's ${hitShip.type}`)
         // set sunkStatus of the ship to true if it was hit enough times
@@ -47,6 +49,7 @@ const playerOneMove = (playerClass, index1, index2, board, ships) => {
             dumbAIMove
         }
     } else if (playerTwoBoard[index1][index2] == 'X') {
+        renderAttackColoring(index1, index2, 'p2', 'green')
         console.log('Splash. You missed and made a big splash on the AI gameboard')
         dumbAIMove
     } else {
