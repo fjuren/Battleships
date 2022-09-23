@@ -27,11 +27,9 @@ var temp = new Gameboard(playerOneBoard)
 var player1Gameboard = null
 const player2Gameboard = new Gameboard(playerTwoBoard)
 
-console.log(player2Gameboard.playerBoard)
-
 // // Player movement logic
 const playerOneMove = require('./gameflow_helpers/playerOneMove');
-// const dumbAIMove = require('./gameflow_helpers/dumbAIMove');
+const dumbAIMove = require('./gameflow_helpers/dumbAIMove');
 
 const randBtn = document.getElementById("randBtn");
 randBtn.addEventListener("click", () => {
@@ -82,10 +80,12 @@ const player1Turn = (ind1, ind2) => {
     // check if gameover? If not proceed:
     playerOneMove(player1, ind1, ind2, player2Gameboard, computerShips)
     // If it isn't game over, player 2's turn
+    setTimeout(player2Turn, 600)
+    
 }
 
 const player2Turn = () => {
-    // var randomIndex1 =  Math.floor(Math.random() * 10);
-    // var randomIndex2 =  Math.floor(Math.random() * 10);
-    // dumbAIMove(randomIndex1, randomIndex2, player1Gameboard, humanShips)
+    var randomIndex1 =  Math.floor(Math.random() * 10);
+    var randomIndex2 =  Math.floor(Math.random() * 10);
+    dumbAIMove(player2, randomIndex1, randomIndex2, player1Gameboard, humanShips)
 }

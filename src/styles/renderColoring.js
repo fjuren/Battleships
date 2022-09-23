@@ -21,8 +21,6 @@ const renderAttackColoring = (index1, index2, p1orp2, hitOrMissColor) => {
   const attackStyling = document.createElement("div")
   attackStyling.classList.add('attackingMove')
   element.appendChild(attackStyling)
-  
   attackStyling.style.backgroundColor = hitOrMissColor
-  console.log(element)
 }
   module.exports = {renderP1StartColoring, renderAttackColoring};

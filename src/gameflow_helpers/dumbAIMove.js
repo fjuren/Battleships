@@ -3,6 +3,7 @@
 const {stringToAIShip, stringToShip} = require('../gameflow_helpers/stringToShip')
 const playerOneBoard = require('../setup/playerOneGameboard')
 const playerOneMove = require('../gameflow_helpers/playerOneMove')
+const {renderAttackColoring} = require ('../styles/renderColoring')
 // const humanGameboard = new Gameboard(playerOneBoard)
 // const player2_AI = new Players("Player 2 - AI", [])
 
@@ -17,8 +18,8 @@ const playerOneMove = require('../gameflow_helpers/playerOneMove')
 // var playerShips = [];
 // playerShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
 
-var randomIndex1 =  Math.floor(Math.random() * 10);
-var randomIndex2 =  Math.floor(Math.random() * 10);
+// var randomIndex1 =  Math.floor(Math.random() * 10);
+// var randomIndex2 =  Math.floor(Math.random() * 10);
 // var randomIndex1 = 8
 // var randomIndex2 = 2
 
@@ -30,29 +31,35 @@ var randomIndex2 =  Math.floor(Math.random() * 10);
 
 // console.log("Dumb AI's turn")
 // console.log("Dumb AI attacks at 2 1")
-const dumbAIMove = (randomIndex1, randomIndex2, board, ships) => {
+const dumbAIMove = (playerClass, randomIndex1, randomIndex2, board, ships) => {
         // check if there's a winner (checkGameWinner.js)
-        player2_AI.dumbAIAttack(randomIndex1, randomIndex2, board, ships)
+        playerClass.dumbAIAttack(randomIndex1, randomIndex2, board, ships)
         // ship hit by AI
-        if (playerOneBoard[randomIndex1][randomIndex2] != 'X') {
-            let hitShip = stringToShip(playerOneBoard[randomIndex1][randomIndex2])
+        if (board.playerBoard[randomIndex1][randomIndex2] != 'X') {
+            let hitShip = stringToShip(board.playerBoard[randomIndex1][randomIndex2])
             console.log(`BOOM! You hit player 1's ${hitShip.type}`)
+            console.log([randomIndex1])
+            console.log([randomIndex2])
+            renderAttackColoring(randomIndex1, randomIndex2, 'p1', 'red')
             hitShip.isSunk()
             // check if sunk
             if (hitShip.sunkStatus) {
                 console.log(`AI sunk player 1's ${hitShip.type}`)
                 // was this the last ship to sink? `If so, it's game over
-                if (board.allShipsSunk(playerShips)) {
+                if (board.allShipsSunk(ships)) {
                     console.log("Game over - GG")
                 }
             } else {
                 console.log('Human turn')
                 // human turn
-                playerOneMove
+                // playerOneMove
             }
 
-        } else if (playerOneBoard[randomIndex1][randomIndex2] === 'X') {
-            console.log('Splash. You missed and made a big splash on the AI gameboard')
+        } else if (board.playerBoard[randomIndex1][randomIndex2] === 'X') {
+            console.log('Splash. You missed and made a big splash on the human gameboard')
+            console.log([randomIndex1])
+            console.log([randomIndex2])
+            renderAttackColoring(randomIndex1, randomIndex2, 'p1', '#00b8ff')
             // human turn
         } else {
             console.log("error??")
