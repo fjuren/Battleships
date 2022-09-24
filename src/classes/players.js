@@ -14,8 +14,8 @@
 // var randomIndex2 =  3
 
 // variables used in dumbAIPlayer method
-// var randomIndex1 =  Math.floor(Math.random() * 10);
-// var randomIndex2 =  Math.floor(Math.random() * 10);
+// var randomIndex1 =  null;
+// var randomIndex2 =  null;
 
 class Players {
     constructor(name) {
@@ -29,8 +29,7 @@ class Players {
         if (!this.checkRepeatedMove(index1, index2) == true) {
             this.preventRepeatMove.push([index1, index2]);
             return board.receiveAttack(index1, index2, ships);
-        } 
-        else {
+        } else {
             return false // move is invalid
         }
     }
@@ -44,7 +43,7 @@ class Players {
             if (this.preventRepeatMove[i][0] == index1 && this.preventRepeatMove[i][1] == index2) {
                 counter++
             }
-        } 
+        }
         // console.log(counter)
         if (counter != 0) {
             return true // repeated move
@@ -55,13 +54,18 @@ class Players {
 
     // -> number number (attacking coordinates)
     // automatated player attacking move using dumb/random logic. Allows for a 1 player game against an AI
-    dumbAIAttack = (randomIndex1, randomIndex2, board, ships) => {
-        while (this.playerAttack(randomIndex1,randomIndex2, board, ships) == false) {
-            randomIndex1 =  Math.floor(Math.random() * 10);
-            randomIndex2 =  Math.floor(Math.random() * 10); 
-            return false
-        } 
-        return this.playerAttack(randomIndex1, randomIndex2, board, ships)
+    dumbAIAttack = (board, ships) => {
+        var validatedMoves = null
+        while (true) {
+            var randomIndex1 = Math.floor(Math.random() * 10);
+            var randomIndex2 = Math.floor(Math.random() * 10);
+            if (this.playerAttack(randomIndex1, randomIndex2, board, ships) != false) {
+                break;
+            }
+        }
+        this.playerAttack(randomIndex1, randomIndex2, board, ships)
+        validatedMoves = [randomIndex1, randomIndex2]
+        return validatedMoves
     }
 }
 
@@ -70,3 +74,22 @@ module.exports = Players
 // const player1 = new Players("Fabian", [])
 
 // player1.playerAttack(1,1, p1Board, Ships)
+
+
+// save for now:
+// while (this.playerAttack(randomIndex1,randomIndex2, board, ships) == false) {
+//     randomIndex1 = Math.floor(Math.random() * 10);
+//     randomIndex2 = Math.floor(Math.random() * 10);
+//     console.log('Found repeated AI move')
+//     console.log(`new move for index1: ${randomIndex1}`)
+//     console.log(`new move for index2: ${randomIndex2}`)
+// if (this.playerAttack(randomIndex1,randomIndex2, board, ships) === undefined){
+//     break;
+//     // return randomIndex1, randomIndex2
+// }
+// } 
+// console.log(`redefined and validated index1: ${randomIndex1}`)
+// console.log(`redefined and validated index2: ${randomIndex2}`)
+// this.playerAttack(randomIndex1, randomIndex2, board, ships)
+// return randomIndex1, randomIndex2
+// } 

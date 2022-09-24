@@ -31,9 +31,7 @@ const {renderAttackColoring} = require ('../styles/renderColoring')
 
 // console.log("Dumb AI's turn")
 // console.log("Dumb AI attacks at 2 1")
-const dumbAIMove = (playerClass, randomIndex1, randomIndex2, board, ships) => {
-        // check if there's a winner (checkGameWinner.js)
-        playerClass.dumbAIAttack(randomIndex1, randomIndex2, board, ships)
+const dumbAIMove = (randomIndex1, randomIndex2, board, ships) => {
         // ship hit by AI
         if (board.playerBoard[randomIndex1][randomIndex2] != 'X') {
             let hitShip = stringToShip(board.playerBoard[randomIndex1][randomIndex2])
@@ -57,8 +55,8 @@ const dumbAIMove = (playerClass, randomIndex1, randomIndex2, board, ships) => {
 
         } else if (board.playerBoard[randomIndex1][randomIndex2] === 'X') {
             console.log('Splash. You missed and made a big splash on the human gameboard')
-            console.log([randomIndex1])
-            console.log([randomIndex2])
+            console.log('dumbAI moved: ' + [randomIndex1])
+            console.log('dumbAI moved: ' + [randomIndex2])
             renderAttackColoring(randomIndex1, randomIndex2, 'p1', '#00b8ff')
             // human turn
         } else {

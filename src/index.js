@@ -75,17 +75,23 @@ document.getElementById("player2Board").addEventListener("click", (e) => {
     ind1 = e.path[0].id[6]
     ind2 = e.path[1].id[6]
     player1Turn(ind1, ind2)
+    
 })
+
 const player1Turn = (ind1, ind2) => {
     // check if gameover? If not proceed:
     playerOneMove(player1, ind1, ind2, player2Gameboard, computerShips)
     // If it isn't game over, player 2's turn
     setTimeout(player2Turn, 600)
-    
 }
 
+
 const player2Turn = () => {
-    var randomIndex1 =  Math.floor(Math.random() * 10);
-    var randomIndex2 =  Math.floor(Math.random() * 10);
-    dumbAIMove(player2, randomIndex1, randomIndex2, player1Gameboard, humanShips)
+    const validatedMoveSet = []
+    player2.dumbAIAttack(player1Gameboard, humanShips).forEach((e) => {
+        validatedMoveSet.push(e)
+    })
+    var randomIndex1 = validatedMoveSet[0]
+    var randomIndex2 = validatedMoveSet[1]
+    dumbAIMove(randomIndex1, randomIndex2, player1Gameboard, humanShips)
 }
