@@ -12,9 +12,6 @@ const p2Board = new Gameboard(playerTwoBoard)
 const player1 = new Players("Fabian", [])
 const player2AI = new Players("Fabian_AI", [])
 
-var randomIndex1 =  7;
-var randomIndex2 =  3;
-
 describe("Testing playerAttack method", () => {
     test("Check that attack move works when a ship isn't present", () => {
         expect(player1.playerAttack(3,2, p2Board, playerShips)).toBe('X')
@@ -42,7 +39,7 @@ describe("Test whether a certain coordinate was already attacked (checkRepeatedM
 
 describe("Testing logic of dumbAIPlayer method", () => {
     test("Dumb AI method runs as normal", () => {
-        player2AI.dumbAIAttack(randomIndex1, randomIndex2, p1Board, playerShips)
+        player2AI.dumbAIAttack(p1Board, playerShips)
         expect(playerOneBoard).toStrictEqual([
             [null, null, null, null, null, null, null, null, null, null],
             [null, null, null, null, null, null, null, null, null, null],
@@ -77,5 +74,11 @@ describe("Testing logic of dumbAIPlayer method", () => {
         player2AI.dumbAIAttack(randomIndex1, randomIndex2, p1Board)
         player2AI.dumbAIAttack(7, 3, p1Board)
         expect(player2AI.dumbAIAttack(randomIndex1, randomIndex2, p1Board)).toBe(false)
+    })
+})
+
+describe("Test of randomAttack method. Omitting test of values since Math.random() will always return expected results", () => {
+    test("Calling should always return an array", () => {
+        expect(player2AI.randomAttack()).toBeInstanceOf(Array)
     })
 })

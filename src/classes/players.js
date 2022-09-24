@@ -53,27 +53,43 @@ class Players {
     }
 
     // -> number number (attacking coordinates)
-    // automatated player attacking move using dumb/random logic. Allows for a 1 player game against an AI
-    dumbAIAttack = (board, ships) => {
+    // automatated player attacking move.
+    dumbAIAttack = (autoAttacks, board, ships) => {
         var validatedMoves = null
+        var randomIndex1 = autoAttacks[0]
+        var randomIndex2 = autoAttacks[1]
         while (true) {
-            var randomIndex1 = Math.floor(Math.random() * 10);
-            var randomIndex2 = Math.floor(Math.random() * 10);
             if (this.playerAttack(randomIndex1, randomIndex2, board, ships) != false) {
                 break;
             }
+            var newAttacks = []
+            this.randomAttack().forEach((e) => {
+                newAttacks.push(e)
+            })
+            randomIndex1 = newAttacks[0]
+            randomIndex2 = newAttacks[1]
         }
         this.playerAttack(randomIndex1, randomIndex2, board, ships)
         validatedMoves = [randomIndex1, randomIndex2]
         return validatedMoves
     }
+
+    // -> num num
+    // algorithm for random attack of board coordinates. This will be a 'dumb' algorithm for MVP
+    randomAttack = () => {
+        var randomAttackIndeces = []
+        var randomIndex1 = Math.floor(Math.random() * 10);
+        var randomIndex2 = Math.floor(Math.random() * 10);
+        randomAttackIndeces.push(randomIndex1, randomIndex2)
+        return randomAttackIndeces
+    }
 }
 
 module.exports = Players
 
-// const player1 = new Players("Fabian", [])
+// const player2 = new Players("Computer", [])
 
-// player1.playerAttack(1,1, p1Board, Ships)
+// player2.randomAttack()
 
 
 // save for now:

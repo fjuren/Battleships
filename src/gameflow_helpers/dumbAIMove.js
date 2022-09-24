@@ -40,6 +40,7 @@ const dumbAIMove = (randomIndex1, randomIndex2, board, ships) => {
             console.log([randomIndex2])
             renderAttackColoring(randomIndex1, randomIndex2, 'p1', 'red')
             hitShip.isSunk()
+            console.log('---------')
             // check if sunk
             if (hitShip.sunkStatus) {
                 console.log(`AI sunk player 1's ${hitShip.type}`)
@@ -57,6 +58,7 @@ const dumbAIMove = (randomIndex1, randomIndex2, board, ships) => {
             console.log('Splash. You missed and made a big splash on the human gameboard')
             console.log('dumbAI moved: ' + [randomIndex1])
             console.log('dumbAI moved: ' + [randomIndex2])
+            console.log('---------')
             renderAttackColoring(randomIndex1, randomIndex2, 'p1', '#00b8ff')
             // human turn
         } else {

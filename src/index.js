@@ -87,11 +87,14 @@ const player1Turn = (ind1, ind2) => {
 
 
 const player2Turn = () => {
+    console.log(player2)
+    var randomAttacks = player2.randomAttack()
     const validatedMoveSet = []
-    player2.dumbAIAttack(player1Gameboard, humanShips).forEach((e) => {
+    player2.dumbAIAttack(randomAttacks, player1Gameboard, humanShips).forEach((e) => {
         validatedMoveSet.push(e)
     })
     var randomIndex1 = validatedMoveSet[0]
     var randomIndex2 = validatedMoveSet[1]
     dumbAIMove(randomIndex1, randomIndex2, player1Gameboard, humanShips)
 }
+
