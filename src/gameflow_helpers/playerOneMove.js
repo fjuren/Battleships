@@ -33,12 +33,11 @@ const playerOneMove = (playerClass, index1, index2, board, ships) => {
     if (playerClass.playerAttack(index1, index2, board, ships) === undefined) {
         let hitShip = stringToAIShip(board.playerBoard[index1][index2])
         renderAttackColoring(index1, index2, 'p2', 'red')
-        console.log(hitShip);
-        console.log(`BOOM! You hit the AI's ${hitShip.type}`)
+        document.getElementById('messaging').innerHTML = `BOOM! You hit the computer's ${hitShip.type.slice(8)}`
         // set sunkStatus of the ship to true if it was hit enough times
         hitShip.isSunk()
         if (hitShip.sunkStatus) {
-            console.log(`Player 1 sunk AI's ${hitShip.type}`)
+            document.getElementById('messaging').innerHTML = `You sunk the computer's ${hitShip.type.slice(8)}`
             // was this the last ship to sink? If so, it's game over
             if(board.allShipsSunk(ships)) {
                 console.log("Game over - GG")
@@ -50,7 +49,7 @@ const playerOneMove = (playerClass, index1, index2, board, ships) => {
         }
     } else if (playerTwoBoard[index1][index2] == 'X') {
         renderAttackColoring(index1, index2, 'p2', '#00b8ff')
-        console.log('Splash. You missed and made a big splash on the AI gameboard')
+        document.getElementById('messaging').innerHTML = 'Splash! You missed and made a big splash'
         // dumbAIMove
     } else {
         console.log('try again')

@@ -35,15 +35,13 @@ const dumbAIMove = (randomIndex1, randomIndex2, board, ships) => {
         // ship hit by AI
         if (board.playerBoard[randomIndex1][randomIndex2] != 'X') {
             let hitShip = stringToShip(board.playerBoard[randomIndex1][randomIndex2])
-            console.log(`BOOM! You hit player 1's ${hitShip.type}`)
-            console.log([randomIndex1])
-            console.log([randomIndex2])
+            document.getElementById('messaging').innerHTML = `BOOM! The computer hit your ${hitShip.type}`
             renderAttackColoring(randomIndex1, randomIndex2, 'p1', 'red')
             hitShip.isSunk()
             console.log('---------')
             // check if sunk
             if (hitShip.sunkStatus) {
-                console.log(`AI sunk player 1's ${hitShip.type}`)
+                document.getElementById('messaging').innerHTML = `The computer sunk your ${hitShip.type}`
                 // was this the last ship to sink? `If so, it's game over
                 if (board.allShipsSunk(ships)) {
                     console.log("Game over - GG")
@@ -55,14 +53,11 @@ const dumbAIMove = (randomIndex1, randomIndex2, board, ships) => {
             }
 
         } else if (board.playerBoard[randomIndex1][randomIndex2] === 'X') {
-            console.log('Splash. You missed and made a big splash on the human gameboard')
-            console.log('dumbAI moved: ' + [randomIndex1])
-            console.log('dumbAI moved: ' + [randomIndex2])
-            console.log('---------')
+            document.getElementById('messaging').innerHTML = 'Splash! The computer missed and made a big splash'
             renderAttackColoring(randomIndex1, randomIndex2, 'p1', '#00b8ff')
             // human turn
         } else {
-            console.log("error??")
+            console.log("error")
         }
     }
     

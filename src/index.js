@@ -52,10 +52,12 @@ const confirmPosBtn = document.getElementById('confirmPosBtn')
     randBtn.remove();
     confirmPosBtn.remove();
     document.getElementById('instructions').remove();
+
+    // sets computer ship starting position (will not render ship positions)
+    placeRandShips(player2Gameboard, computerShips);
 })
 
-// sets computer ship starting position (will not render ship positions)
-placeRandShips(player2Gameboard, computerShips);
+// START OF GAMELOOP?
 
 // random selection of player who goes first
 if (Math.random() < 0.5) {
@@ -70,7 +72,6 @@ if (Math.random() < 0.5) {
 var ind1 = null
 var ind2 = null
 
-
 document.getElementById("player2Board").addEventListener("click", (e) => {
     ind1 = e.path[0].id[6]
     ind2 = e.path[1].id[6]
@@ -79,12 +80,11 @@ document.getElementById("player2Board").addEventListener("click", (e) => {
 })
 
 const player1Turn = (ind1, ind2) => {
-    // check if gameover? If not proceed:
+    // check if gameover? If not proceed
     playerOneMove(player1, ind1, ind2, player2Gameboard, computerShips)
     // If it isn't game over, player 2's turn
     setTimeout(player2Turn, 600)
 }
-
 
 const player2Turn = () => {
     console.log(player2)
