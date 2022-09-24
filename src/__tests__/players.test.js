@@ -39,7 +39,8 @@ describe("Test whether a certain coordinate was already attacked (checkRepeatedM
 
 describe("Testing logic of dumbAIPlayer method", () => {
     test("Dumb AI method runs as normal", () => {
-        player2AI.dumbAIAttack(p1Board, playerShips)
+        const fakeAutoAttack = [7, 3]
+        player2AI.dumbAIAttack(fakeAutoAttack, p1Board, playerShips)
         expect(playerOneBoard).toStrictEqual([
             [null, null, null, null, null, null, null, null, null, null],
             [null, null, null, null, null, null, null, null, null, null],
@@ -53,27 +54,22 @@ describe("Testing logic of dumbAIPlayer method", () => {
             [null, null, null, null, null, null, null, null, null, null],
         ])
     })
-    test("Dumb AI chooses a random number that's already been moved. Original nonrandom test coordinates (7,3) should not be moved", () => {
-        player2AI.dumbAIAttack(7, 3, p1Board, playerShips)
-        player2AI.dumbAIAttack(randomIndex1, randomIndex2, p1Board, playerShips)
-        player2AI.dumbAIAttack(4, 4, p1Board, playerShips)
-        expect(playerOneBoard).toStrictEqual([
+    test("Dumb AI chooses a random number that's already been moved. A new random coordinate should be placed", () => {
+        const fakeAutoAttack = [7, 3]
+        player2AI.dumbAIAttack(fakeAutoAttack, p1Board, playerShips)
+        player2AI.dumbAIAttack(fakeAutoAttack, p1Board, playerShips)
+        expect(playerOneBoard).not.toStrictEqual([
             [null, null, null, null, null, null, null, null, null, null],
             [null, null, null, null, null, null, null, null, null, null],
             [null, null, null, null, null, null, null, null, null, null],
             [null, null, null, null, null, null, null, null, null, null],
-            [null, null, null, null, 'X', null, null, null, null, null],
+            [null, null, null, null, null, null, null, null, null, null],
             [null, null, null, null, null, null, null, null, null, null],
             [null, null, null, null, null, null, null, null, null, null],
             [null, null, null, 'X', null, null, null, null, null, null],
             [null, null, null, null, null, null, null, null, null, null],
             [null, null, null, null, null, null, null, null, null, null],
         ])
-    })
-    test("#2 Dumb AI chooses a random number that's already been moved. Original nonrandom test coordinates (7,3) should not be moved", () => {
-        player2AI.dumbAIAttack(randomIndex1, randomIndex2, p1Board)
-        player2AI.dumbAIAttack(7, 3, p1Board)
-        expect(player2AI.dumbAIAttack(randomIndex1, randomIndex2, p1Board)).toBe(false)
     })
 })
 
