@@ -1,264 +1,276 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8" name="viewport" content="width=500, initial-scale=1"/>
-    <title>Battleship</title>
-  </head>
-  <body>
-    <h1>Battleships</h1>
-    <h2 class="playerNames">Your board</h2>
-    <p id="instructions"><b>Instructions:</b> To play, randomize your starting ship locations until you are happy
-      with where you ships are positioned at sea. Once ready, hit 'Start' to play! Good luck Commander.
-    </p>
-    <button id="randBtn" class="btn">Randomize ship positions</button>
-    <button id="confirmPosBtn" class="btn" disabled>Start</button>
-    <div id="player1Board">
-      <div class="p1-col" id="p1-col0">
-        <div class="p1-row" id="p1-row0"></div>
-        <div class="p1-row" id="p1-row1"></div>
-        <div class="p1-row" id="p1-row2"></div>
-        <div class="p1-row" id="p1-row3"></div>
-        <div class="p1-row" id="p1-row4"></div>
-        <div class="p1-row" id="p1-row5"></div>
-        <div class="p1-row" id="p1-row6"></div>
-        <div class="p1-row" id="p1-row7"></div>
-        <div class="p1-row" id="p1-row8"></div>
-        <div class="p1-row" id="p1-row9"></div>
+
+<head>
+  <meta charset="utf-8" name="viewport" content="width=500, initial-scale=1" />
+  <title>Battleship</title>
+</head>
+
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>Battleships</h1>
+      <p id="instructions"><b>Instructions:</b> To play, randomize your starting ship locations until you are happy
+        with where you ships are positioned at sea. Once ready, hit 'Start' to play! Good luck Commander.
+      </p>
+      <p id="messaging"></p>
+      <button id="randBtn" class="btn">Randomize ship positions</button>
+      <button id="confirmPosBtn" class="btn" disabled>Start</button>
+    </div>
+    <div class="content">
+      <div class="sub-content-1">
+        <h2 class="playerNames">Your board</h2>
+        <div id="player1Board">
+          <div class="p1-col" id="p1-col0">
+            <div class="p1-row" id="p1-row0"></div>
+            <div class="p1-row" id="p1-row1"></div>
+            <div class="p1-row" id="p1-row2"></div>
+            <div class="p1-row" id="p1-row3"></div>
+            <div class="p1-row" id="p1-row4"></div>
+            <div class="p1-row" id="p1-row5"></div>
+            <div class="p1-row" id="p1-row6"></div>
+            <div class="p1-row" id="p1-row7"></div>
+            <div class="p1-row" id="p1-row8"></div>
+            <div class="p1-row" id="p1-row9"></div>
+          </div>
+          <div class="p1-col" id="p1-col1">
+            <div class="p1-row" id="p1-row0"></div>
+            <div class="p1-row" id="p1-row1"></div>
+            <div class="p1-row" id="p1-row2"></div>
+            <div class="p1-row" id="p1-row3"></div>
+            <div class="p1-row" id="p1-row4"></div>
+            <div class="p1-row" id="p1-row5"></div>
+            <div class="p1-row" id="p1-row6"></div>
+            <div class="p1-row" id="p1-row7"></div>
+            <div class="p1-row" id="p1-row8"></div>
+            <div class="p1-row" id="p1-row9"></div>
+          </div>
+          <div class="p1-col" id="p1-col2">
+            <div class="p1-row" id="p1-row0"></div>
+            <div class="p1-row" id="p1-row1"></div>
+            <div class="p1-row" id="p1-row2"></div>
+            <div class="p1-row" id="p1-row3"></div>
+            <div class="p1-row" id="p1-row4"></div>
+            <div class="p1-row" id="p1-row5"></div>
+            <div class="p1-row" id="p1-row6"></div>
+            <div class="p1-row" id="p1-row7"></div>
+            <div class="p1-row" id="p1-row8"></div>
+            <div class="p1-row" id="p1-row9"></div>
+          </div>
+          <div class="p1-col" id="p1-col3">
+            <div class="p1-row" id="p1-row0"></div>
+            <div class="p1-row" id="p1-row1"></div>
+            <div class="p1-row" id="p1-row2"></div>
+            <div class="p1-row" id="p1-row3"></div>
+            <div class="p1-row" id="p1-row4"></div>
+            <div class="p1-row" id="p1-row5"></div>
+            <div class="p1-row" id="p1-row6"></div>
+            <div class="p1-row" id="p1-row7"></div>
+            <div class="p1-row" id="p1-row8"></div>
+            <div class="p1-row" id="p1-row9"></div>
+          </div>
+          <div class="p1-col" id="p1-col4">
+            <div class="p1-row" id="p1-row0"></div>
+            <div class="p1-row" id="p1-row1"></div>
+            <div class="p1-row" id="p1-row2"></div>
+            <div class="p1-row" id="p1-row3"></div>
+            <div class="p1-row" id="p1-row4"></div>
+            <div class="p1-row" id="p1-row5"></div>
+            <div class="p1-row" id="p1-row6"></div>
+            <div class="p1-row" id="p1-row7"></div>
+            <div class="p1-row" id="p1-row8"></div>
+            <div class="p1-row" id="p1-row9"></div>
+          </div>
+          <div class="p1-col" id="p1-col5">
+            <div class="p1-row" id="p1-row0"></div>
+            <div class="p1-row" id="p1-row1"></div>
+            <div class="p1-row" id="p1-row2"></div>
+            <div class="p1-row" id="p1-row3"></div>
+            <div class="p1-row" id="p1-row4"></div>
+            <div class="p1-row" id="p1-row5"></div>
+            <div class="p1-row" id="p1-row6"></div>
+            <div class="p1-row" id="p1-row7"></div>
+            <div class="p1-row" id="p1-row8"></div>
+            <div class="p1-row" id="p1-row9"></div>
+          </div>
+          <div class="p1-col" id="p1-col6">
+            <div class="p1-row" id="p1-row0"></div>
+            <div class="p1-row" id="p1-row1"></div>
+            <div class="p1-row" id="p1-row2"></div>
+            <div class="p1-row" id="p1-row3"></div>
+            <div class="p1-row" id="p1-row4"></div>
+            <div class="p1-row" id="p1-row5"></div>
+            <div class="p1-row" id="p1-row6"></div>
+            <div class="p1-row" id="p1-row7"></div>
+            <div class="p1-row" id="p1-row8"></div>
+            <div class="p1-row" id="p1-row9"></div>
+          </div>
+          <div class="p1-col" id="p1-col7">
+            <div class="p1-row" id="p1-row0"></div>
+            <div class="p1-row" id="p1-row1"></div>
+            <div class="p1-row" id="p1-row2"></div>
+            <div class="p1-row" id="p1-row3"></div>
+            <div class="p1-row" id="p1-row4"></div>
+            <div class="p1-row" id="p1-row5"></div>
+            <div class="p1-row" id="p1-row6"></div>
+            <div class="p1-row" id="p1-row7"></div>
+            <div class="p1-row" id="p1-row8"></div>
+            <div class="p1-row" id="p1-row9"></div>
+          </div>
+          <div class="p1-col" id="p1-col8">
+            <div class="p1-row" id="p1-row0"></div>
+            <div class="p1-row" id="p1-row1"></div>
+            <div class="p1-row" id="p1-row2"></div>
+            <div class="p1-row" id="p1-row3"></div>
+            <div class="p1-row" id="p1-row4"></div>
+            <div class="p1-row" id="p1-row5"></div>
+            <div class="p1-row" id="p1-row6"></div>
+            <div class="p1-row" id="p1-row7"></div>
+            <div class="p1-row" id="p1-row8"></div>
+            <div class="p1-row" id="p1-row9"></div>
+          </div>
+          <div class="p1-col" id="p1-col9">
+            <div class="p1-row" id="p1-row0"></div>
+            <div class="p1-row" id="p1-row1"></div>
+            <div class="p1-row" id="p1-row2"></div>
+            <div class="p1-row" id="p1-row3"></div>
+            <div class="p1-row" id="p1-row4"></div>
+            <div class="p1-row" id="p1-row5"></div>
+            <div class="p1-row" id="p1-row6"></div>
+            <div class="p1-row" id="p1-row7"></div>
+            <div class="p1-row" id="p1-row8"></div>
+            <div class="p1-row" id="p1-row9"></div>
+          </div>
+        </div>
       </div>
-      <div class="p1-col" id="p1-col1">
-        <div class="p1-row" id="p1-row0"></div>
-        <div class="p1-row" id="p1-row1"></div>
-        <div class="p1-row" id="p1-row2"></div>
-        <div class="p1-row" id="p1-row3"></div>
-        <div class="p1-row" id="p1-row4"></div>
-        <div class="p1-row" id="p1-row5"></div>
-        <div class="p1-row" id="p1-row6"></div>
-        <div class="p1-row" id="p1-row7"></div>
-        <div class="p1-row" id="p1-row8"></div>
-        <div class="p1-row" id="p1-row9"></div>
-      </div>
-      <div class="p1-col" id="p1-col2">
-        <div class="p1-row" id="p1-row0"></div>
-        <div class="p1-row" id="p1-row1"></div>
-        <div class="p1-row" id="p1-row2"></div>
-        <div class="p1-row" id="p1-row3"></div>
-        <div class="p1-row" id="p1-row4"></div>
-        <div class="p1-row" id="p1-row5"></div>
-        <div class="p1-row" id="p1-row6"></div>
-        <div class="p1-row" id="p1-row7"></div>
-        <div class="p1-row" id="p1-row8"></div>
-        <div class="p1-row" id="p1-row9"></div>
-      </div>
-      <div class="p1-col" id="p1-col3">
-        <div class="p1-row" id="p1-row0"></div>
-        <div class="p1-row" id="p1-row1"></div>
-        <div class="p1-row" id="p1-row2"></div>
-        <div class="p1-row" id="p1-row3"></div>
-        <div class="p1-row" id="p1-row4"></div>
-        <div class="p1-row" id="p1-row5"></div>
-        <div class="p1-row" id="p1-row6"></div>
-        <div class="p1-row" id="p1-row7"></div>
-        <div class="p1-row" id="p1-row8"></div>
-        <div class="p1-row" id="p1-row9"></div>
-      </div>
-      <div class="p1-col" id="p1-col4">
-        <div class="p1-row" id="p1-row0"></div>
-        <div class="p1-row" id="p1-row1"></div>
-        <div class="p1-row" id="p1-row2"></div>
-        <div class="p1-row" id="p1-row3"></div>
-        <div class="p1-row" id="p1-row4"></div>
-        <div class="p1-row" id="p1-row5"></div>
-        <div class="p1-row" id="p1-row6"></div>
-        <div class="p1-row" id="p1-row7"></div>
-        <div class="p1-row" id="p1-row8"></div>
-        <div class="p1-row" id="p1-row9"></div>
-      </div>
-      <div class="p1-col" id="p1-col5">
-        <div class="p1-row" id="p1-row0"></div>
-        <div class="p1-row" id="p1-row1"></div>
-        <div class="p1-row" id="p1-row2"></div>
-        <div class="p1-row" id="p1-row3"></div>
-        <div class="p1-row" id="p1-row4"></div>
-        <div class="p1-row" id="p1-row5"></div>
-        <div class="p1-row" id="p1-row6"></div>
-        <div class="p1-row" id="p1-row7"></div>
-        <div class="p1-row" id="p1-row8"></div>
-        <div class="p1-row" id="p1-row9"></div>
-      </div>
-      <div class="p1-col" id="p1-col6">
-        <div class="p1-row" id="p1-row0"></div>
-        <div class="p1-row" id="p1-row1"></div>
-        <div class="p1-row" id="p1-row2"></div>
-        <div class="p1-row" id="p1-row3"></div>
-        <div class="p1-row" id="p1-row4"></div>
-        <div class="p1-row" id="p1-row5"></div>
-        <div class="p1-row" id="p1-row6"></div>
-        <div class="p1-row" id="p1-row7"></div>
-        <div class="p1-row" id="p1-row8"></div>
-        <div class="p1-row" id="p1-row9"></div>
-      </div>
-      <div class="p1-col" id="p1-col7">
-        <div class="p1-row" id="p1-row0"></div>
-        <div class="p1-row" id="p1-row1"></div>
-        <div class="p1-row" id="p1-row2"></div>
-        <div class="p1-row" id="p1-row3"></div>
-        <div class="p1-row" id="p1-row4"></div>
-        <div class="p1-row" id="p1-row5"></div>
-        <div class="p1-row" id="p1-row6"></div>
-        <div class="p1-row" id="p1-row7"></div>
-        <div class="p1-row" id="p1-row8"></div>
-        <div class="p1-row" id="p1-row9"></div>
-      </div>
-      <div class="p1-col" id="p1-col8">
-        <div class="p1-row" id="p1-row0"></div>
-        <div class="p1-row" id="p1-row1"></div>
-        <div class="p1-row" id="p1-row2"></div>
-        <div class="p1-row" id="p1-row3"></div>
-        <div class="p1-row" id="p1-row4"></div>
-        <div class="p1-row" id="p1-row5"></div>
-        <div class="p1-row" id="p1-row6"></div>
-        <div class="p1-row" id="p1-row7"></div>
-        <div class="p1-row" id="p1-row8"></div>
-        <div class="p1-row" id="p1-row9"></div>
-      </div>
-      <div class="p1-col" id="p1-col9">
-        <div class="p1-row" id="p1-row0"></div>
-        <div class="p1-row" id="p1-row1"></div>
-        <div class="p1-row" id="p1-row2"></div>
-        <div class="p1-row" id="p1-row3"></div>
-        <div class="p1-row" id="p1-row4"></div>
-        <div class="p1-row" id="p1-row5"></div>
-        <div class="p1-row" id="p1-row6"></div>
-        <div class="p1-row" id="p1-row7"></div>
-        <div class="p1-row" id="p1-row8"></div>
-        <div class="p1-row" id="p1-row9"></div>
+      <div class="sub-content-2">
+        <h2 class="playerNames">Computer board</h2>
+        <div id="player2Board">
+          <div class="p2-col" id="p2-col0">
+            <div class="p2-row" id="p2-row0"></div>
+            <div class="p2-row" id="p2-row1"></div>
+            <div class="p2-row" id="p2-row2"></div>
+            <div class="p2-row" id="p2-row3"></div>
+            <div class="p2-row" id="p2-row4"></div>
+            <div class="p2-row" id="p2-row5"></div>
+            <div class="p2-row" id="p2-row6"></div>
+            <div class="p2-row" id="p2-row7"></div>
+            <div class="p2-row" id="p2-row8"></div>
+            <div class="p2-row" id="p2-row9"></div>
+          </div>
+          <div class="p2-col" id="p2-col1">
+            <div class="p2-row" id="p2-row0"></div>
+            <div class="p2-row" id="p2-row1"></div>
+            <div class="p2-row" id="p2-row2"></div>
+            <div class="p2-row" id="p2-row3"></div>
+            <div class="p2-row" id="p2-row4"></div>
+            <div class="p2-row" id="p2-row5"></div>
+            <div class="p2-row" id="p2-row6"></div>
+            <div class="p2-row" id="p2-row7"></div>
+            <div class="p2-row" id="p2-row8"></div>
+            <div class="p2-row" id="p2-row9"></div>
+          </div>
+          <div class="p2-col" id="p2-col2">
+            <div class="p2-row" id="p2-row0"></div>
+            <div class="p2-row" id="p2-row1"></div>
+            <div class="p2-row" id="p2-row2"></div>
+            <div class="p2-row" id="p2-row3"></div>
+            <div class="p2-row" id="p2-row4"></div>
+            <div class="p2-row" id="p2-row5"></div>
+            <div class="p2-row" id="p2-row6"></div>
+            <div class="p2-row" id="p2-row7"></div>
+            <div class="p2-row" id="p2-row8"></div>
+            <div class="p2-row" id="p2-row9"></div>
+          </div>
+          <div class="p2-col" id="p2-col3">
+            <div class="p2-row" id="p2-row0"></div>
+            <div class="p2-row" id="p2-row1"></div>
+            <div class="p2-row" id="p2-row2"></div>
+            <div class="p2-row" id="p2-row3"></div>
+            <div class="p2-row" id="p2-row4"></div>
+            <div class="p2-row" id="p2-row5"></div>
+            <div class="p2-row" id="p2-row6"></div>
+            <div class="p2-row" id="p2-row7"></div>
+            <div class="p2-row" id="p2-row8"></div>
+            <div class="p2-row" id="p2-row9"></div>
+          </div>
+          <div class="p2-col" id="p2-col4">
+            <div class="p2-row" id="p2-row0"></div>
+            <div class="p2-row" id="p2-row1"></div>
+            <div class="p2-row" id="p2-row2"></div>
+            <div class="p2-row" id="p2-row3"></div>
+            <div class="p2-row" id="p2-row4"></div>
+            <div class="p2-row" id="p2-row5"></div>
+            <div class="p2-row" id="p2-row6"></div>
+            <div class="p2-row" id="p2-row7"></div>
+            <div class="p2-row" id="p2-row8"></div>
+            <div class="p2-row" id="p2-row9"></div>
+          </div>
+          <div class="p2-col" id="p2-col5">
+            <div class="p2-row" id="p2-row0"></div>
+            <div class="p2-row" id="p2-row1"></div>
+            <div class="p2-row" id="p2-row2"></div>
+            <div class="p2-row" id="p2-row3"></div>
+            <div class="p2-row" id="p2-row4"></div>
+            <div class="p2-row" id="p2-row5"></div>
+            <div class="p2-row" id="p2-row6"></div>
+            <div class="p2-row" id="p2-row7"></div>
+            <div class="p2-row" id="p2-row8"></div>
+            <div class="p2-row" id="p2-row9"></div>
+          </div>
+          <div class="p2-col" id="p2-col6">
+            <div class="p2-row" id="p2-row0"></div>
+            <div class="p2-row" id="p2-row1"></div>
+            <div class="p2-row" id="p2-row2"></div>
+            <div class="p2-row" id="p2-row3"></div>
+            <div class="p2-row" id="p2-row4"></div>
+            <div class="p2-row" id="p2-row5"></div>
+            <div class="p2-row" id="p2-row6"></div>
+            <div class="p2-row" id="p2-row7"></div>
+            <div class="p2-row" id="p2-row8"></div>
+            <div class="p2-row" id="p2-row9"></div>
+          </div>
+          <div class="p2-col" id="p2-col7">
+            <div class="p2-row" id="p2-row0"></div>
+            <div class="p2-row" id="p2-row1"></div>
+            <div class="p2-row" id="p2-row2"></div>
+            <div class="p2-row" id="p2-row3"></div>
+            <div class="p2-row" id="p2-row4"></div>
+            <div class="p2-row" id="p2-row5"></div>
+            <div class="p2-row" id="p2-row6"></div>
+            <div class="p2-row" id="p2-row7"></div>
+            <div class="p2-row" id="p2-row8"></div>
+            <div class="p2-row" id="p2-row9"></div>
+          </div>
+          <div class="p2-col" id="p2-col8">
+            <div class="p2-row" id="p2-row0"></div>
+            <div class="p2-row" id="p2-row1"></div>
+            <div class="p2-row" id="p2-row2"></div>
+            <div class="p2-row" id="p2-row3"></div>
+            <div class="p2-row" id="p2-row4"></div>
+            <div class="p2-row" id="p2-row5"></div>
+            <div class="p2-row" id="p2-row6"></div>
+            <div class="p2-row" id="p2-row7"></div>
+            <div class="p2-row" id="p2-row8"></div>
+            <div class="p2-row" id="p2-row9"></div>
+          </div>
+          <div class="p2-col" id="p2-col9">
+            <div class="p2-row" id="p2-row0"></div>
+            <div class="p2-row" id="p2-row1"></div>
+            <div class="p2-row" id="p2-row2"></div>
+            <div class="p2-row" id="p2-row3"></div>
+            <div class="p2-row" id="p2-row4"></div>
+            <div class="p2-row" id="p2-row5"></div>
+            <div class="p2-row" id="p2-row6"></div>
+            <div class="p2-row" id="p2-row7"></div>
+            <div class="p2-row" id="p2-row8"></div>
+            <div class="p2-row" id="p2-row9"></div>
+          </div>
+        </div>
       </div>
     </div>
-    <p id="messaging"></p>
-    <br>
-    <h2 class="playerNames">Computer board</h2>
-    <div id="player2Board">
-      <div class="p2-col" id="p2-col0">
-        <div class="p2-row" id="p2-row0"></div>
-        <div class="p2-row" id="p2-row1"></div>
-        <div class="p2-row" id="p2-row2"></div>
-        <div class="p2-row" id="p2-row3"></div>
-        <div class="p2-row" id="p2-row4"></div>
-        <div class="p2-row" id="p2-row5"></div>
-        <div class="p2-row" id="p2-row6"></div>
-        <div class="p2-row" id="p2-row7"></div>
-        <div class="p2-row" id="p2-row8"></div>
-        <div class="p2-row" id="p2-row9"></div>
-      </div>
-      <div class="p2-col" id="p2-col1">
-        <div class="p2-row" id="p2-row0"></div>
-        <div class="p2-row" id="p2-row1"></div>
-        <div class="p2-row" id="p2-row2"></div>
-        <div class="p2-row" id="p2-row3"></div>
-        <div class="p2-row" id="p2-row4"></div>
-        <div class="p2-row" id="p2-row5"></div>
-        <div class="p2-row" id="p2-row6"></div>
-        <div class="p2-row" id="p2-row7"></div>
-        <div class="p2-row" id="p2-row8"></div>
-        <div class="p2-row" id="p2-row9"></div>
-      </div>
-      <div class="p2-col" id="p2-col2">
-        <div class="p2-row" id="p2-row0"></div>
-        <div class="p2-row" id="p2-row1"></div>
-        <div class="p2-row" id="p2-row2"></div>
-        <div class="p2-row" id="p2-row3"></div>
-        <div class="p2-row" id="p2-row4"></div>
-        <div class="p2-row" id="p2-row5"></div>
-        <div class="p2-row" id="p2-row6"></div>
-        <div class="p2-row" id="p2-row7"></div>
-        <div class="p2-row" id="p2-row8"></div>
-        <div class="p2-row" id="p2-row9"></div>
-      </div>
-      <div class="p2-col" id="p2-col3">
-        <div class="p2-row" id="p2-row0"></div>
-        <div class="p2-row" id="p2-row1"></div>
-        <div class="p2-row" id="p2-row2"></div>
-        <div class="p2-row" id="p2-row3"></div>
-        <div class="p2-row" id="p2-row4"></div>
-        <div class="p2-row" id="p2-row5"></div>
-        <div class="p2-row" id="p2-row6"></div>
-        <div class="p2-row" id="p2-row7"></div>
-        <div class="p2-row" id="p2-row8"></div>
-        <div class="p2-row" id="p2-row9"></div>
-      </div>
-      <div class="p2-col" id="p2-col4">
-        <div class="p2-row" id="p2-row0"></div>
-        <div class="p2-row" id="p2-row1"></div>
-        <div class="p2-row" id="p2-row2"></div>
-        <div class="p2-row" id="p2-row3"></div>
-        <div class="p2-row" id="p2-row4"></div>
-        <div class="p2-row" id="p2-row5"></div>
-        <div class="p2-row" id="p2-row6"></div>
-        <div class="p2-row" id="p2-row7"></div>
-        <div class="p2-row" id="p2-row8"></div>
-        <div class="p2-row" id="p2-row9"></div>
-      </div>
-      <div class="p2-col" id="p2-col5">
-        <div class="p2-row" id="p2-row0"></div>
-        <div class="p2-row" id="p2-row1"></div>
-        <div class="p2-row" id="p2-row2"></div>
-        <div class="p2-row" id="p2-row3"></div>
-        <div class="p2-row" id="p2-row4"></div>
-        <div class="p2-row" id="p2-row5"></div>
-        <div class="p2-row" id="p2-row6"></div>
-        <div class="p2-row" id="p2-row7"></div>
-        <div class="p2-row" id="p2-row8"></div>
-        <div class="p2-row" id="p2-row9"></div>
-      </div>
-      <div class="p2-col" id="p2-col6">
-        <div class="p2-row" id="p2-row0"></div>
-        <div class="p2-row" id="p2-row1"></div>
-        <div class="p2-row" id="p2-row2"></div>
-        <div class="p2-row" id="p2-row3"></div>
-        <div class="p2-row" id="p2-row4"></div>
-        <div class="p2-row" id="p2-row5"></div>
-        <div class="p2-row" id="p2-row6"></div>
-        <div class="p2-row" id="p2-row7"></div>
-        <div class="p2-row" id="p2-row8"></div>
-        <div class="p2-row" id="p2-row9"></div>
-      </div>
-      <div class="p2-col" id="p2-col7">
-        <div class="p2-row" id="p2-row0"></div>
-        <div class="p2-row" id="p2-row1"></div>
-        <div class="p2-row" id="p2-row2"></div>
-        <div class="p2-row" id="p2-row3"></div>
-        <div class="p2-row" id="p2-row4"></div>
-        <div class="p2-row" id="p2-row5"></div>
-        <div class="p2-row" id="p2-row6"></div>
-        <div class="p2-row" id="p2-row7"></div>
-        <div class="p2-row" id="p2-row8"></div>
-        <div class="p2-row" id="p2-row9"></div>
-      </div>
-      <div class="p2-col" id="p2-col8">
-        <div class="p2-row" id="p2-row0"></div>
-        <div class="p2-row" id="p2-row1"></div>
-        <div class="p2-row" id="p2-row2"></div>
-        <div class="p2-row" id="p2-row3"></div>
-        <div class="p2-row" id="p2-row4"></div>
-        <div class="p2-row" id="p2-row5"></div>
-        <div class="p2-row" id="p2-row6"></div>
-        <div class="p2-row" id="p2-row7"></div>
-        <div class="p2-row" id="p2-row8"></div>
-        <div class="p2-row" id="p2-row9"></div>
-      </div>
-      <div class="p2-col" id="p2-col9">
-        <div class="p2-row" id="p2-row0"></div>
-        <div class="p2-row" id="p2-row1"></div>
-        <div class="p2-row" id="p2-row2"></div>
-        <div class="p2-row" id="p2-row3"></div>
-        <div class="p2-row" id="p2-row4"></div>
-        <div class="p2-row" id="p2-row5"></div>
-        <div class="p2-row" id="p2-row6"></div>
-        <div class="p2-row" id="p2-row7"></div>
-        <div class="p2-row" id="p2-row8"></div>
-        <div class="p2-row" id="p2-row9"></div>
-      </div>
-    </div>
-    <script src="bundle.js"></script>
-  </body>
+  </div>
+  <script src="bundle.js"></script>
+</body>
+
 </html>

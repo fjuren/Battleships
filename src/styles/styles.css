@@ -1,7 +1,25 @@
-h1, h2 {
+.container {
+    display: grid;    
+    padding: .625rem;
+    grid-template-rows: [row1] 153px [row2] auto;
+}
+
+.header {
+    /* display: grid; */
+}
+
+.content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.sub-content-1, .sub-content-2 {
     text-align: center;
 }
 
+h1, h2 {
+    text-align: center;
+}
 
 #player1Board, #player2Board {
     position: relative;
