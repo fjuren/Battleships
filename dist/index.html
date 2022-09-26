@@ -2,18 +2,19 @@
 <html>
 
 <head>
-  <meta charset="utf-8" name="viewport" content="width=500, initial-scale=1" />
+  <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=320, height=device-height, target-densitydpi=medium-dpi" />
   <title>Battleship</title>
 </head>
 
 <body>
   <div class="container">
     <div class="header">
-      <h1>Battleships</h1>
-      <p id="instructions"><b>Instructions:</b> To play, randomize your starting ship locations until you are happy
-        with where you ships are positioned at sea. Once ready, hit 'Start' to play! Good luck Commander.
-      </p>
-      <p id="messaging"></p>
+      <div class="title">
+        <h1>Battleships</h1>
+      </div>
+      <div class="text">
+        <p id="instructions"><b>Instructions:</b> To play, randomize your starting ship locations until you are happy with where you ships are positioned at sea. <br> <br> When ready, hit 'Start game' to play and attack the enemy! Good luck Commander.</p>
+      </div>
     </div>
     <div class="content">
       <div class="sub-content-1">
@@ -140,13 +141,14 @@
             <div class="p1-row" id="p1-row9"></div>
           </div>
         </div>
+        <h3 id="player2Actions"></h3>
         <div class="buttons">
           <button id="randBtn" class="btn">Randomize ship positions</button>
           <button id="confirmPosBtn" class="btn" disabled>Start game</button>
         </div>
       </div>
       <div class="sub-content-2">
-        <h2 class="playerNames">Computer board</h2>
+        <h2 class="playerNames">Enemy board</h2>
         <div id="player2Board">
           <div class="p2-col" id="p2-col0">
             <div class="p2-row" id="p2-row0"></div>
@@ -269,6 +271,7 @@
             <div class="p2-row" id="p2-row9"></div>
           </div>
         </div>
+        <h3 id="player1Actions"></h3>
       </div>
     </div>
   </div>

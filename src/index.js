@@ -51,22 +51,13 @@ const confirmPosBtn = document.getElementById('confirmPosBtn')
     renderP1StartColoring(player1Gameboard, '#A19B99')
     randBtn.remove();
     confirmPosBtn.remove();
-    document.getElementById('instructions').remove();
+    document.getElementById('instructions').innerHTML = "<span style='font-size:20px'>Attack the enemy board!</span>";
 
     // sets computer ship starting position (will not render ship positions)
     placeRandShips(player2Gameboard, computerShips);
 })
 
-// START OF GAMELOOP?
-
-// random selection of player who goes first
-if (Math.random() < 0.5) {
-    console.log("player 1's turn")
-    // player 1 initiate its move via onclick event on enemy gameboard.
-} else {
-    console.log("computer's turn")
-    // player2Turn()
-}
+// START OF GAMELOOP
 
 // gameflow
 var ind1 = null
@@ -76,6 +67,12 @@ document.getElementById("player2Board").addEventListener("click", (e) => {
     ind1 = e.path[0].id[6]
     ind2 = e.path[1].id[6]
     player1Turn(ind1, ind2)
+
+    try {
+        document.getElementById('instructions').remove();
+    } catch (e) {
+        // do nothing
+    }
     
 })
 

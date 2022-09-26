@@ -1,11 +1,16 @@
+body {
+    background-color: #F8F8FF;
+}
+
 .container {
     display: grid;    
     padding: .625rem;
-    grid-template-rows: [row1] 153px [row2] auto;
+    grid-template-rows: [row1] 11rem [row2] auto;
 }
 
 .header {
-    /* display: grid; */
+    display: grid;
+    justify-content: center;
 }
 
 .content {
@@ -17,8 +22,13 @@
     text-align: center;
 }
 
-h1, h2 {
+h1 {
     text-align: center;
+}
+
+.text {
+    text-align: center;
+    width: 35rem;
 }
 
 #player1Board, #player2Board {
@@ -63,7 +73,6 @@ h1, h2 {
 
   .btn:active {
     background-color: #363636;
-    transform: translateY(4px);
   }
 
 #confirmPosBtn:disabled {
@@ -78,6 +87,9 @@ h1, h2 {
     box-shadow: none;
     /* cursor: not-allowed; */
 }
+#confirmPosBtn:disabled:active {
+    transform: none;
+}
 
 
 .attackingMove {
@@ -88,3 +100,11 @@ h1, h2 {
     width: 20px;
     height: 20px;
 }
+
+/* 2532x1170 pixels at 460ppi */
+@media only screen 
+    and (device-width: 390px) 
+    and (device-height: 844px) 
+    and (-webkit-device-pixel-ratio: 3) { 
+        
+    }

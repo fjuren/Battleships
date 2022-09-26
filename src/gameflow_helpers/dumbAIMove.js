@@ -35,13 +35,13 @@ const dumbAIMove = (randomIndex1, randomIndex2, board, ships) => {
         // ship hit by AI
         if (board.playerBoard[randomIndex1][randomIndex2] != 'X') {
             let hitShip = stringToShip(board.playerBoard[randomIndex1][randomIndex2])
-            document.getElementById('messaging').innerHTML = `BOOM! The computer hit your ${hitShip.type}`
+            document.getElementById('player2Actions').innerHTML = `BOOM! The Enemy hit your ${hitShip.type}`
             renderAttackColoring(randomIndex1, randomIndex2, 'p1', 'red')
             hitShip.isSunk()
             console.log('---------')
             // check if sunk
             if (hitShip.sunkStatus) {
-                document.getElementById('messaging').innerHTML = `The computer sunk your ${hitShip.type}`
+                document.getElementById('player2Actions').innerHTML = `The Enemy sunk your ${hitShip.type}`
                 // was this the last ship to sink? `If so, it's game over
                 if (board.allShipsSunk(ships)) {
                     console.log("Game over - GG")
@@ -53,7 +53,7 @@ const dumbAIMove = (randomIndex1, randomIndex2, board, ships) => {
             }
 
         } else if (board.playerBoard[randomIndex1][randomIndex2] === 'X') {
-            document.getElementById('messaging').innerHTML = 'Splash! The computer missed and made a big splash'
+            document.getElementById('player2Actions').innerHTML = 'Splash! The Enemy missed and made a big splash'
             renderAttackColoring(randomIndex1, randomIndex2, 'p1', '#00b8ff')
             // human turn
         } else {
