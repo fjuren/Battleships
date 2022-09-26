@@ -39,6 +39,47 @@ h1, h2 {
     background-color: white;
 }
 
+.buttons {
+    padding-top: 1rem;
+}
+
+.randBtn {
+
+}
+
+.btn {
+    background-color: white;
+    color: black;
+    border: 2px solid #555555;
+    width: 11rem;
+    height: 2rem;
+  }
+  
+  .btn:hover {
+    background-color: #555555;
+    color: white;
+    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
+  }
+
+  .btn:active {
+    background-color: #363636;
+    transform: translateY(4px);
+  }
+
+#confirmPosBtn:disabled {
+    opacity: 0.4;
+    box-shadow: none;
+    /* cursor: not-allowed; */
+}
+#confirmPosBtn:disabled:hover {
+    opacity: 0.4;
+    background-color: white;
+    color: black;
+    box-shadow: none;
+    /* cursor: not-allowed; */
+}
+
+
 .attackingMove {
     position:absolute;
     left: .6rem;
