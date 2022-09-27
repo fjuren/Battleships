@@ -53,8 +53,8 @@ h1 {
     padding-top: 1rem;
 }
 
-.randBtn {
-
+#gameoverBtn {
+    background-color: chartreuse;
 }
 
 .btn {

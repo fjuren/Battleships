@@ -18,8 +18,8 @@ const playerOneBoard = require('./setup/playerOneGameboard')
 const playerTwoBoard = require('./setup/playerTwoGameboard');
 
 // players
-const player1 = new Players('Player 1 - Human', [])
-const player2 = new Players('Player 2 - Computer', [])
+const player1 = new Players('human player', [])
+const player2 = new Players('enemy player', [])
 
 // temporary board for rendering purposes
 var temp = new Gameboard(playerOneBoard)
@@ -57,6 +57,7 @@ const confirmPosBtn = document.getElementById('confirmPosBtn')
     placeRandShips(player2Gameboard, computerShips);
 })
 
+console.log(player2Gameboard.playerBoard)
 // START OF GAMELOOP
 
 // gameflow
@@ -84,7 +85,6 @@ const player1Turn = (ind1, ind2) => {
 }
 
 const player2Turn = () => {
-    console.log(player2)
     var randomAttacks = player2.randomAttack()
     const validatedMoveSet = []
     player2.dumbAIAttack(randomAttacks, player1Gameboard, humanShips).forEach((e) => {
@@ -92,6 +92,6 @@ const player2Turn = () => {
     })
     var randomIndex1 = validatedMoveSet[0]
     var randomIndex2 = validatedMoveSet[1]
-    dumbAIMove(randomIndex1, randomIndex2, player1Gameboard, humanShips)
+    dumbAIMove(player2, randomIndex1, randomIndex2, player1Gameboard, humanShips)
 }
 

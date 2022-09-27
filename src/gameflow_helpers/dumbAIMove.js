@@ -4,6 +4,7 @@ const {stringToAIShip, stringToShip} = require('../gameflow_helpers/stringToShip
 const playerOneBoard = require('../setup/playerOneGameboard')
 const playerOneMove = require('../gameflow_helpers/playerOneMove')
 const {renderAttackColoring} = require ('../styles/renderColoring')
+const isGameOver = require('../gameflow_helpers/isGameOver')
 // const humanGameboard = new Gameboard(playerOneBoard)
 // const player2_AI = new Players("Player 2 - AI", [])
 
@@ -31,7 +32,7 @@ const {renderAttackColoring} = require ('../styles/renderColoring')
 
 // console.log("Dumb AI's turn")
 // console.log("Dumb AI attacks at 2 1")
-const dumbAIMove = (randomIndex1, randomIndex2, board, ships) => {
+const dumbAIMove = (playerClass, randomIndex1, randomIndex2, board, ships) => {
         // ship hit by AI
         if (board.playerBoard[randomIndex1][randomIndex2] != 'X') {
             let hitShip = stringToShip(board.playerBoard[randomIndex1][randomIndex2])
@@ -44,14 +45,11 @@ const dumbAIMove = (randomIndex1, randomIndex2, board, ships) => {
                 document.getElementById('player2Actions').innerHTML = `The Enemy sunk your ${hitShip.type}`
                 // was this the last ship to sink? `If so, it's game over
                 if (board.allShipsSunk(ships)) {
-                    console.log("Game over - GG")
+                    isGameOver(playerClass)
                 }
             } else {
-                console.log('Human turn')
                 // human turn
-                // playerOneMove
             }
-
         } else if (board.playerBoard[randomIndex1][randomIndex2] === 'X') {
             document.getElementById('player2Actions').innerHTML = 'Splash! The Enemy missed and made a big splash'
             renderAttackColoring(randomIndex1, randomIndex2, 'p1', '#00b8ff')

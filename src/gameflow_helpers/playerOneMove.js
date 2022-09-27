@@ -4,6 +4,7 @@ const {stringToAIShip, stringToShip} = require('../gameflow_helpers/stringToShip
 const playerTwoBoard = require('../setup/playerTwoGameboard')
 const dumbAIMove = require('./dumbAIMove')
 const {renderAttackColoring} = require('../styles/renderColoring')
+const isGameOver = require('../gameflow_helpers/isGameOver')
 // const enemyGameboard = new Gameboard(playerTwoBoard)
 // const player1 = new Players("Player 1", [])
 
@@ -40,7 +41,7 @@ const playerOneMove = (playerClass, index1, index2, board, ships) => {
             document.getElementById('player1Actions').innerHTML = `You sunk the computer's ${hitShip.type.slice(8)}`
             // was this the last ship to sink? If so, it's game over
             if(board.allShipsSunk(ships)) {
-                console.log("Game over - GG")
+                isGameOver(playerClass)
             }
         } else {
             // contiue
