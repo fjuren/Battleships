@@ -8,9 +8,10 @@ Steps below in index.js. This is game flow functionality
 [X] Take player moves by clicking on board coords 
 [X] // take user click specific coordinates
 [X] // render moves and hit/miss
-[ ] Develop the general layout of componenets
-[ ] create isGameOver function
-[ ] Contine turn by turn moves, informing user what happened each move and what 
-[ ] Inform users when game over happens and who won
+[X] Develop the general layout of componenets
+[X] create isGameOver function
+[X] Contine turn by turn moves, informing user what happened each move and what 
+[X] Inform users when game over happens and who won
 hit/missed
+[ ] create 'Play again' button that clears board
 [X] Figure out how you want players to place their ships
