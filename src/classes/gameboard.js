@@ -1,23 +1,3 @@
-// const {
-//     Carrier,
-//     Battleship,
-//     Cruiser,
-//     Submarine,
-//     Destroyer,
-//     AI_Carrier,
-//     AI_Battleship,
-//     AI_Cruiser,
-//     AI_Submarine,
-//     AI_Destroyer
-// } = require('../setup/createShips')
-// var playerShips = [];
-// playerShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
-// var AIShips = [];
-// AIShips.push(AI_Carrier, AI_Battleship, AI_Cruiser, AI_Submarine, AI_Destroyer);
-
-// const playerOneBoard = require('../setup/playerOneGameboard')
-
-
 class Gameboard {
     constructor(playerBoard) {
         this.playerBoard = playerBoard //ARRAY
@@ -139,24 +119,5 @@ class Gameboard {
         [ null, null, null, null, null, null, null, null, null, null ] ]
     }
 };
-
-// const game = new Gameboard(playerOneBoard)
-
-// game
-// game.placeShip(Carrier, 1, 1, true)
-// game
-
-// game.clearBoard()
-// game
-// game.checkOverlap(Cruiser, 1, 1, false)
-// // game.placeShip(Cruiser, 1, 1, false)
-// game.placeShip(AI_Cruiser, 1, 1, false)
-
-// game.receiveAttack(1, 1, AIShips)
-// AIShips
-// Ships
-// game.receiveAttack(1, 2)
-
-// Cruiser
 
 module.exports = Gameboard

@@ -13,9 +13,6 @@ const playerOneGameboard = () => {
     };
 };
 
-playerOneGameboard(); // may need to move this to game_controller.js later
+playerOneGameboard(); 
 
 module.exports = playerOneBoard
-
-
-// Delete after push. Testing push on different PC

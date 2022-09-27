@@ -4,11 +4,6 @@ const playerOneBoard = require('../setup/playerOneGameboard')
 const {Carrier, Battleship, Cruiser, Submarine, Destroyer} = require('../setup/createShips')
 var playerShips = [];
 playerShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
-// const Carrier = allShips[0] 
-// const Battleship = allShips[1] 
-// const Cruiser = allShips[2] 
-// const Submarine = allShips[3] 
-// const Destroyer = allShips[4] 
 
 
 

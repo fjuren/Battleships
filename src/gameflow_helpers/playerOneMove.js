@@ -1,35 +1,9 @@
-// const Gameboard = require('../classes/gameboard')
-// const Players = require('../classes/players')
 const {stringToAIShip, stringToShip} = require('../gameflow_helpers/stringToShip')
 const playerTwoBoard = require('../setup/playerTwoGameboard')
 const dumbAIMove = require('./dumbAIMove')
 const {renderAttackColoring} = require('../styles/renderColoring')
 const isGameOver = require('../gameflow_helpers/isGameOver')
-// const enemyGameboard = new Gameboard(playerTwoBoard)
-// const player1 = new Players("Player 1", [])
 
-// const {
-//     AI_Carrier,
-//     AI_Battleship,
-//     AI_Cruiser,
-//     AI_Submarine,
-//     AI_Destroyer
-// } = require('../setup/createShips')
-
-// var AIShips = [];
-// AIShips.push(AI_Carrier, AI_Battleship, AI_Cruiser, AI_Submarine, AI_Destroyer);
-
-// enemyGameboard.placeShip(AI_Carrier, 5, 3, true)
-// enemyGameboard.placeShip(AI_Cruiser, 1, 1, false)
-// enemyGameboard.placeShip(AI_Battleship, 8, 6, false)
-// enemyGameboard.placeShip(AI_Submarine, 2, 3, true)
-// enemyGameboard.placeShip(AI_Destroyer, 7, 5, false)
-
-// console.log("Player 1's turn")
-// console.log("Player 1 attacks at 0 1")
-
-// Num Num class array -> ??
-// complete the move set of player 1
 const playerOneMove = (playerClass, index1, index2, board, ships) => {
     if (playerClass.playerAttack(index1, index2, board, ships) === undefined) {
         let hitShip = stringToAIShip(board.playerBoard[index1][index2])
@@ -58,30 +32,3 @@ const playerOneMove = (playerClass, index1, index2, board, ships) => {
 }
 
 module.exports = playerOneMove
-
-// playerOneMove(0, 1, enemyGameboard, AIShips)
-// playerOneMove(1, 1, enemyGameboard, AIShips)
-// playerOneMove(1, 2, enemyGameboard, AIShips)
-// playerOneMove(1, 3, enemyGameboard, AIShips)
-// playerOneMove(1, 5, enemyGameboard, AIShips)
-
-// playerOneMove(5,3, enemyGameboard, AIShips)
-// playerOneMove(6,3, enemyGameboard, AIShips)
-// playerOneMove(7,3, enemyGameboard, AIShips)
-// playerOneMove(8,3, enemyGameboard, AIShips)
-// playerOneMove(9,3, enemyGameboard, AIShips)
-
-// playerOneMove(8,6, enemyGameboard, AIShips)
-// playerOneMove(8,7, enemyGameboard, AIShips)
-// playerOneMove(8,8, enemyGameboard, AIShips)
-// playerOneMove(8,9, enemyGameboard, AIShips)
-
-// playerOneMove(2,3, enemyGameboard, AIShips)
-// playerOneMove(3,3, enemyGameboard, AIShips)
-// playerOneMove(4,3, enemyGameboard, AIShips)
-// playerOneMove(5,2, enemyGameboard, AIShips)
-
-// playerOneMove(7,5, enemyGameboard, AIShips)
-// playerOneMove(7,6, enemyGameboard, AIShips)
-// console.log(enemyGameboard)
-// console.log(AIShips)

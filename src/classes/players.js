@@ -1,21 +1,3 @@
-// const playerOneBoard = require('../setup/playerOneGameboard'); // gameboard data
-// const playerTwoBoard = require('../setup/playerTwoGameboard')
-// const Gameboard = require('./gameboard') // Gameboard class
-
-// const p1Board = new Gameboard(playerOneBoard)
-// const p2Board = new Gameboard(playerTwoBoard)
-
-// const {Carrier, Battleship, Cruiser, Submarine, Destroyer} = require('../setup/createShips')
-// var playerShips = [];
-// playerShips.push(Carrier, Battleship, Cruiser, Submarine, Destroyer);
-
-// Required for testing dumbAI in jest
-// var randomIndex1 =  7
-// var randomIndex2 =  3
-
-// variables used in dumbAIPlayer method
-// var randomIndex1 =  null;
-// var randomIndex2 =  null;
 
 class Players {
     constructor(name) {
@@ -86,26 +68,3 @@ class Players {
 }
 
 module.exports = Players
-
-// const player2 = new Players("Computer", [])
-
-// player2.randomAttack()
-
-
-// save for now:
-// while (this.playerAttack(randomIndex1,randomIndex2, board, ships) == false) {
-//     randomIndex1 = Math.floor(Math.random() * 10);
-//     randomIndex2 = Math.floor(Math.random() * 10);
-//     console.log('Found repeated AI move')
-//     console.log(`new move for index1: ${randomIndex1}`)
-//     console.log(`new move for index2: ${randomIndex2}`)
-// if (this.playerAttack(randomIndex1,randomIndex2, board, ships) === undefined){
-//     break;
-//     // return randomIndex1, randomIndex2
-// }
-// } 
-// console.log(`redefined and validated index1: ${randomIndex1}`)
-// console.log(`redefined and validated index2: ${randomIndex2}`)
-// this.playerAttack(randomIndex1, randomIndex2, board, ships)
-// return randomIndex1, randomIndex2
-// } 

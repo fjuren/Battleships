@@ -13,5 +13,5 @@ Steps below in index.js. This is game flow functionality
 [X] Contine turn by turn moves, informing user what happened each move and what 
 [X] Inform users when game over happens and who won
 hit/missed
-[ ] create 'Play again' button that clears board
+[X] create 'Play again' button that clears board
 [X] Figure out how you want players to place their ships

@@ -1,6 +1,5 @@
 // object -> DOM changes (text & button)
 // Adds text with button to play again
-
 const isGameOver = (playerClass) => {
     // inform game is over and who won
     var textClass = document.getElementsByClassName("text");
@@ -28,8 +27,6 @@ const isGameOver = (playerClass) => {
 
 // helper for isGameOVer
 // Functionality to reset game boards after clicking 'PLay again' button
-
-
 const playAgain = () => {
     window.location.reload()
 }
