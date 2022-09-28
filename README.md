@@ -2,7 +2,7 @@
 
 ## Link to game:
 
-https://fjuren.github.io/Battleships/
+https://fjuren.github.io/Battleships/ (not for mobile)
 
 
 ## Purpose:
@@ -12,6 +12,8 @@ Battleships is a mini project that I built as part of my self-taught journey tow
 Two things I tried to do during this project was to 1) reuse functionality where ever I could and to 2) ensure each function had only one job to do with appropriate helper functions.
 
 An improvement I might add to a next iteration is to build a better computer algorithm, making the game more challenging and fun. Building this algorithm isn't in line wiht my personal roadmap toward web development, but I intend to come back to this when I'm looking for a different kind of challenge!
+
+One challenge I had with this project was how best to organize the directory and what functions belonged where. I'd like to learn more about file structure and best practices around this.
 
 
 ## Game Features:
