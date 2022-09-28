@@ -107,16 +107,16 @@ class Gameboard {
     // clears the ships from the gameboard
     clearBoard = () => {
         this.playerBoard = [ 
-        [ null, null, null, null, null, null, null, null, null, null ],
-        [ null, null, null, null, null, null, null, null, null, null ],
-        [ null, null, null, null, null, null, null, null, null, null ],
-        [ null, null, null, null, null, null, null, null, null, null ],
-        [ null, null, null, null, null, null, null, null, null, null ],
-        [ null, null, null, null, null, null, null, null, null, null ],
-        [ null, null, null, null, null, null, null, null, null, null ],
-        [ null, null, null, null, null, null, null, null, null, null ],
-        [ null, null, null, null, null, null, null, null, null, null ],
-        [ null, null, null, null, null, null, null, null, null, null ] ]
+            [ null, null, null, null, null, null, null, null, null, null ],
+            [ null, null, null, null, null, null, null, null, null, null ],
+            [ null, null, null, null, null, null, null, null, null, null ],
+            [ null, null, null, null, null, null, null, null, null, null ],
+            [ null, null, null, null, null, null, null, null, null, null ],
+            [ null, null, null, null, null, null, null, null, null, null ],
+            [ null, null, null, null, null, null, null, null, null, null ],
+            [ null, null, null, null, null, null, null, null, null, null ],
+            [ null, null, null, null, null, null, null, null, null, null ],
+            [ null, null, null, null, null, null, null, null, null, null ] ]
     }
 };
 
