@@ -1,5 +1,6 @@
 body {
     background-color: #F8F8FF;
+    display: grid;
 }
 
 .container {
@@ -102,9 +103,15 @@ h1 {
 }
 
 /* 2532x1170 pixels at 460ppi */
-@media only screen 
+/* @media only screen 
     and (device-width: 390px) 
     and (device-height: 844px) 
     and (-webkit-device-pixel-ratio: 3) { 
-        
+        }
+    } */
+
+@media screen and (max-width: 391px) {
+    .content {
+        grid-template-columns: auto;
     }
+}

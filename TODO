@@ -1,5 +1,5 @@
 
-Steps below in index.js. This is game flow functionality
+Steps below as remaining steps. This is game flow functionality
 [X] Create players in index.js
 [X] Create gameboards per player in index.js
 [X] Populate each gameboard with ship positions (manually/programatically for now)
@@ -15,3 +15,4 @@ Steps below in index.js. This is game flow functionality
 hit/missed
 [X] create 'Play again' button that clears board
 [X] Figure out how you want players to place their ships
+[ ] Make page responsive
