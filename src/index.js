@@ -33,22 +33,14 @@ const player2Gameboard = new Gameboard(playerTwoBoard);
 const playerOneMove = require('./gameflow_helpers/playerOneMove');
 const dumbAIMove = require('./gameflow_helpers/dumbAIMove');
 
-// var confirmButton = document.createElement('button');
-// confirmButton.type = 'button';
-// confirmButton.innerHTML = 'Start';
-// confirmButton.id = 'confirmPosBtn';
-// confirmButton.className = 'btn';
-
 const confirmPosBtn = document.getElementById('confirmPosBtn');
 
 const randBtn = document.getElementById('randBtn');
 randBtn.addEventListener('click', () => {
   renderTempBoard(temp, humanShips);
   confirmPosBtn.disabled = false;
-  // randBtn.insertAdjacentElement('afterend', confirmButton)
 });
 
-// confirmButton.addEventListener("click", () => {
 confirmPosBtn.addEventListener('click', () => {
   player1Gameboard = temp;
   renderP1StartColoring(player1Gameboard, '#A19B99');
@@ -59,9 +51,6 @@ confirmPosBtn.addEventListener('click', () => {
   // sets computer ship starting position (will not render ship positions)
   placeRandShips(player2Gameboard, computerShips);
 });
-
-console.log(player2Gameboard.playerBoard);
-// START OF GAMELOOP
 
 // gameflow
 let ind1 = null;

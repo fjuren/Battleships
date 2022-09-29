@@ -11,11 +11,8 @@ const dumbAIMove = (playerClass, randomIndex1, randomIndex2, board, ships) => {
     document.getElementById('player2Actions').innerHTML = `BOOM! The Enemy hit your ${hitShip.type}`;
     renderAttackColoring(randomIndex1, randomIndex2, 'p1', 'red');
     hitShip.isSunk();
-    console.log('---------');
-    // check if sunk
     if (hitShip.sunkStatus) {
       document.getElementById('player2Actions').innerHTML = `The Enemy sunk your ${hitShip.type}`;
-      // was this the last ship to sink? `If so, it's game over
       if (board.allShipsSunk(ships)) {
         isGameOver(playerClass);
       }
@@ -27,7 +24,7 @@ const dumbAIMove = (playerClass, randomIndex1, randomIndex2, board, ships) => {
     renderAttackColoring(randomIndex1, randomIndex2, 'p1', '#00b8ff');
     // human turn
   } else {
-    console.log('error');
+    // do nothing
   }
 };
 

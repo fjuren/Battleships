@@ -7,7 +7,6 @@ const playAgain = () => {
 // object -> DOM changes (text & button)
 // Adds text with button to play again
 const isGameOver = (playerClass) => {
-  // inform game is over and who won
   const textClass = document.getElementsByClassName('text');
   const div = document.createElement('div');
   const h3 = document.createElement('h3');

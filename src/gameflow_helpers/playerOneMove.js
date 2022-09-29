@@ -19,7 +19,6 @@ const playerOneMove = (playerClass, index1, index2, board, ships) => {
       }
     } else {
       // contiue
-      console.log('AI turn');
       // dumbAIMove
     }
   } else if (playerTwoBoard[index1][index2] === 'X') {
@@ -27,7 +26,7 @@ const playerOneMove = (playerClass, index1, index2, board, ships) => {
     document.getElementById('player1Actions').innerHTML = 'Splash! You missed and made a big splash';
     // dumbAIMove
   } else {
-    console.log('try again');
+    // do nothing
   }
 };
 

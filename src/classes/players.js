@@ -26,7 +26,6 @@ class Players {
                 counter++
             }
         }
-        // console.log(counter)
         if (counter != 0) {
             return true // repeated move
         } else {
